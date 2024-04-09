@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProjectLibraryManagerV01E.Views.LoginPage"
-             Title="LoginPage">
-
+             Title="Log in">
+<ScrollView>
     <VerticalStackLayout Margin="50" Spacing="10">
 
         <Label
-            Text="Login Page"
+            Text="Log in Page"
             VerticalOptions="Center"
             HorizontalOptions="Center"
             FontSize="Header"
+            FontFamily="San Francisco"
         />
 
 
@@ -19,48 +20,54 @@
             <VerticalStackLayout Padding="30" Spacing="30" VerticalOptions="Center">
                 
                 <HorizontalStackLayout Spacing="40" HorizontalOptions="End">
-                    <Label Text="UserID:" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="UserID:" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" FontFamily="San Francisco"></Label>
                     <Entry x:Name="entryUserID"
                            Placeholder="Enter UserID"
                            WidthRequest="300"
                            BackgroundColor="LightGray"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
-                           ></Entry>
+                           FontFamily="San Francisco"
+                    ></Entry>
                 </HorizontalStackLayout>
 
 
                 <HorizontalStackLayout Spacing="15" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label Text="Password:" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="Password:" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" FontFamily="San Francisco"></Label>
                 <Entry x:Name="entryPAssword"
                        Margin="0"
                        Placeholder="Enter password" 
                        BackgroundColor ="LightGray"
                        WidthRequest="300"
-                       HorizontalOptions="Center"></Entry>
+                       HorizontalOptions="Center"
+                       FontFamily="San Francisco"
+                ></Entry>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout Spacing="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="60,0,0,0">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                         <RadioButton x:Name="userRadioButton" GroupName="LoginType" />
                         <!--Checked="UserRadioButton_Checked" />-->
-                        <Label Text="User" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
+                        <Label Text="User" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" FontFamily="San Francisco"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <RadioButton x:Name="adminRadioButton" GroupName="LoginType" /><!--Checked="AdminRadioButton_Checked"--> 
-                        <Label Text="Admin" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
+                        <RadioButton x:Name="adminRadioButton" GroupName="LoginType" /><!--Checked="AdminRadioButton_Checked"-->
+                        <Label Text="Admin" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" FontFamily="San Francisco"/>
                     </StackLayout>
 
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout HorizontalOptions="End">
-                    <Button Text="Log In"
+                    <Button x:Name="loginBtn"
+                            Clicked="loginBtn_Clicked_1"
+                            Text="Log In"
                             FontSize="20"
                             FontAttributes="Bold"
                             TextColor="White"
                             HeightRequest="50"
                             WidthRequest="300"
                             BackgroundColor="Black"
+                            FontFamily="San Francisco"
                     ></Button>
                 </HorizontalStackLayout>
 
@@ -80,5 +87,7 @@
         </Frame>-->
 
     </VerticalStackLayout>
-    
+
+   </ScrollView>
+
 </ContentPage>

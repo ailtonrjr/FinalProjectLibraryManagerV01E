@@ -12,4 +12,8 @@ namespace FinalProjectLibraryManagerV01E.Views;
 			InitializeComponent();
 		}
 
-	}
+    private void HomeUserBtn_Clicked_1(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
+}
