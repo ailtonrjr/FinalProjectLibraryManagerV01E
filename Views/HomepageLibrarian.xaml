@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProjectLibraryManagerV01E.Views.HomepageLibrarian"
+             Title="Library Management System | Admin">
+    <ScrollView>
+        <Grid  
+            BackgroundColor="LightGrey"
+            Padding="30, 15">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="7*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <!--<Button x:Name="Home_button"
+                    Grid.Row="0"
+                    Grid.Column="0" 
+                    BackgroundColor="DarkGoldenrod" 
+                    Text="Home"
+                    
+                    ></Button>-->
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0"  Spacing="5" Margin="0,20,0,0">
+                <Button x:Name="HomeAdmBtn"
+                        Clicked="HomeAdmBtn_Clicked"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Home"
+                        FontSize="24"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                ></Button>
+
+                <Button x:Name="LoginAdmBtn"
+                        Clicked="LoginAdmBtn_Clicked"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Login"
+                        FontSize="24"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                ></Button>
+
+                    <Button x:Name="BooksAdmBtn"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Books"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                ></Button>
+
+                <Button x:Name="StudentsAdmBtn"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Students and Instructors"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                ></Button>
+
+                <Button x:Name="SearchAdmBtn"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Search a book"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        TextColor="White"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                ></Button>
+
+                <Button x:Name="ReservationsAdmBtn"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Reservations"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                ></Button>
+
+                <Button x:Name="LoansAdmBtn"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Loans"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                ></Button>
+
+
+                <!--<Button x:Name="LoansHistoryAdmBtn"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Loans History"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                ></Button>-->
+
+                <Button x:Name="FinesAndPaymentsAdmBtn"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        BackgroundColor="DarkGoldenrod" 
+                        Text="Fines and Payments"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BorderWidth="5"
+                        BorderColor="DarkGrey"
+                        
+                ></Button>
+
+                
+            </VerticalStackLayout>
+            
+            
+            <Label 
+                Padding="10" 
+                Margin="30,0,0,0" 
+                Grid.Row="0" 
+                Grid.Column="1" 
+                Text="Library Management System" 
+                TextColor="Black" 
+                FontAttributes="Bold"
+                TextDecorations="Underline"
+                FontSize="Header"
+                ></Label>
+            
+            <Label 
+                Padding="10,0,0,0" 
+                Margin="30,0,0,0" 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                Text="Welcome, Dear Librarian!" 
+                TextColor="Black" 
+                FontSize="Small"></Label>
+
+
+        </Grid>
+
+
+    </ScrollView>
+</ContentPage>

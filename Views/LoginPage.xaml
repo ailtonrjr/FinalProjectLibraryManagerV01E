@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProjectLibraryManagerV01E.Views.LoginPage"
+             Title="LoginPage">
+
+    <VerticalStackLayout Margin="50" Spacing="10">
+
+        <Label
+            Text="Login Page"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="Header"
+        />
+
+
+        <Frame Padding="10,50,10,5" WidthRequest="500" HeightRequest="500" BackgroundColor="White">
+            
+            <VerticalStackLayout Padding="30" Spacing="30" VerticalOptions="Center">
+                
+                <HorizontalStackLayout Spacing="40" HorizontalOptions="End">
+                    <Label Text="UserID:" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Entry x:Name="entryUserID"
+                           Placeholder="Enter UserID"
+                           WidthRequest="300"
+                           BackgroundColor="LightGray"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           ></Entry>
+                </HorizontalStackLayout>
+
+
+                <HorizontalStackLayout Spacing="15" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Password:" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                <Entry x:Name="entryPAssword"
+                       Margin="0"
+                       Placeholder="Enter password" 
+                       BackgroundColor ="LightGray"
+                       WidthRequest="300"
+                       HorizontalOptions="Center"></Entry>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="60,0,0,0">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                        <RadioButton x:Name="userRadioButton" GroupName="LoginType" />
+                        <!--Checked="UserRadioButton_Checked" />-->
+                        <Label Text="User" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                        <RadioButton x:Name="adminRadioButton" GroupName="LoginType" /><!--Checked="AdminRadioButton_Checked"--> 
+                        <Label Text="Admin" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" />
+                    </StackLayout>
+
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="End">
+                    <Button Text="Log In"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            HeightRequest="50"
+                            WidthRequest="300"
+                            BackgroundColor="Black"
+                    ></Button>
+                </HorizontalStackLayout>
+
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+        <!--<Frame Padding="10,0,10,5">
+
+            <HorizontalStackLayout>
+                <Label Text="Password: " HeightRequest="50" FontSize="20"></Label>
+                <Entry x:Name="entryPAssword"
+                       Placeholder="Enter password"
+                       WidthRequest="100"></Entry>
+            </HorizontalStackLayout>
+        </Frame>-->
+
+    </VerticalStackLayout>
+    
+</ContentPage>
