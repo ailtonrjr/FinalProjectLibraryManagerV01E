@@ -8,5 +8,7 @@ namespace FinalProjectLibraryManagerV01E.Models
 {
     internal class Fine
     {
-    }
+        public Student Student { get; set; }
+        public decimal Amount { get; set; }        
+    }    
 }

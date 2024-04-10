@@ -18,8 +18,9 @@ namespace FinalProjectLibraryManagerV01E
             Routing.RegisterRoute(nameof(Reservation), typeof(Reservation));
             Routing.RegisterRoute(nameof(SearchSelect), typeof(SearchSelect));
             Routing.RegisterRoute(nameof(StudentsInstructors), typeof(StudentsInstructors));
-              
-
+            Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
+            Routing.RegisterRoute(nameof(BooksPage), typeof(BooksPage));
+            Routing.RegisterRoute(nameof(LoansPage), typeof(LoansPage));
         }
     }
 }

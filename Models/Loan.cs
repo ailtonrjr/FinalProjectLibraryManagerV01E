@@ -8,5 +8,9 @@ namespace FinalProjectLibraryManagerV01E.Models
 {
     internal class Loan
     {
-    }
+        public Book Book { get; set; }
+        public Student Student { get; set; }
+        public DateTime DueDate { get; set; }
+        
+    }    
 }
