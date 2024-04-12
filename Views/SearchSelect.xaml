@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<<<<<<< HEAD
              x:Class="FinalProjectLibraryManagerV01E.Views.SearchSelect"
              Title="Search and Select a Book | Admin">
 
@@ -172,3 +172,22 @@
     </ScrollView>
 
 </ContentPage>
+=======
+             x:Class="FinalProjectLibraryManagerV01E.Views.SearchSelect">
+    <StackLayout Padding="20">
+        <Label Text="Search Books" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+        <!-- Input field for book title -->
+        <Entry Placeholder="Book Title" x:Name="TitleEntry" Margin="0,0,0,10"/>
+
+        <!-- Input field for book author -->
+        <Entry Placeholder="Book Author" x:Name="AuthorEntry" Margin="0,0,0,10"/>
+
+        <!-- Input field for book category -->
+        <Entry Placeholder="Book Category" x:Name="CategoryEntry" Margin="0,0,0,10"/>
+
+        <!-- Search button -->
+        <Button Text="Searchr" Clicked="OnSearchClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
+    </StackLayout>
+</ContentPage>
+>>>>>>> 6be35bbfa84f15bf56cd966f0ee94b8e955ab122

@@ -6,6 +6,7 @@ public partial class SearchSelect : ContentPage
 	{
 		InitializeComponent();
 	}
+<<<<<<< HEAD
 
     private void homeSearchBtn_Clicked(object sender, EventArgs e)
     {
@@ -35,5 +36,12 @@ public partial class SearchSelect : ContentPage
     private void finesPaymentsSearchBtn_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
+=======
+    private void OnSearchClicked(object sender, EventArgs e)
+    {        
+        string title = TitleEntry.Text;
+        string author = AuthorEntry.Text;
+        string category = CategoryEntry.Text;        
+>>>>>>> 6be35bbfa84f15bf56cd966f0ee94b8e955ab122
     }
 }
