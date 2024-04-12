@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProjectLibraryManagerV01E.Views.HomepageCustomer"
-             Title="Library Management System | Students and Instrutors | User">
-   
+             x:Class="FinalProjectLibraryManagerV01E.Views.YourReservationsUser"
+             Title="Your Reservations | User">
     
     <ScrollView>
         <Grid  
-            BackgroundColor="GhostWhite"
-            Padding="0,20,20,0">
-            
+         BackgroundColor="GhostWhite"
+         Padding="0,20,20,0">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -21,24 +20,18 @@
                 <ColumnDefinition Width="6*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <VerticalStackLayout
-                Grid.Row="1" 
-                Grid.Column="0" 
-                Margin="0,-110,0,-1000" 
-                Spacing="5" 
-                Padding="0,150" 
-                BackgroundColor="#212121">
-                
-                <Button x:Name="HomeUserBtn"
-                    Clicked="HomeUserBtn_Clicked"
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0" Margin="0,-110,0,-1000" Spacing="5" Padding="0,150" BackgroundColor="#212121">
+                <Button
+                    x:Name="HomeReservUserBtn"
                     Text="HOME"
+                    Clicked="HomeReservUserBtn_Clicked"
                     CornerRadius="0"
                     FontSize="16"
-                    TextColor="Black"
-                    Background="LightGray"
+                    TextColor="White"
+                    Background="#212121"
                     FontAttributes="Bold"
                     FontFamily="San Francisco"
-                ></Button>
+                 ></Button>
 
                 <Button
                     x:Name="SearchUserBtn"
@@ -53,30 +46,29 @@
                 ></Button>
 
                 <Button
-                    x:Name="ReservationUserBtn"
+                    x:Name="YourReservationUserBtn"
                     Text="Your Reservations"
-                    Clicked="ReservationUserBtn_Clicked"
                     TextTransform="Uppercase"
+                    CornerRadius="0"
                     FontSize="16"
                     FontAttributes="Bold"
-                    TextColor="White"
-                    Background="#212121"
+                    TextColor="Black"
+                    Background="LightGray"
                     FontFamily="San Francisco"
                 ></Button>
 
-                <Button
-                    x:Name="LoansUserBtn"
-                    Text="Your Loans"
-                    Clicked="LoansUserBtn_Clicked"
-                    TextTransform="Uppercase"
-                    FontSize="16"
-                    FontAttributes="Bold"
-                    TextColor="White"
-                    Background="#212121"
-                    FontFamily="San Francisco"
+                <Button x:Name="LoansUserBtn"
+                     Text="Your Loans"
+                        Clicked="LoansUserBtn_Clicked"
+                     TextTransform="Uppercase"
+                     FontSize="16"
+                     FontAttributes="Bold"
+                     TextColor="White"
+                     Background="#212121"
+                     FontFamily="San Francisco"
                 ></Button>
 
-                <Button
+                <Button 
                     x:Name="FinesPaymentsUserBtn"
                     Text="Fines and Payments"
                     Clicked="FinesPaymentsUserBtn_Clicked"
@@ -92,27 +84,27 @@
 
 
             <Label 
-                Padding="10" 
-                Margin="30,0,0,0" 
-                Grid.Row="0" 
-                Grid.Column="1" 
-                Text="Library Management System" 
-                TextColor="Black" 
-                FontAttributes="Bold"
-                FontSize="Header"
-                FontFamily="Helvetica"
-                ></Label>
+             Padding="10" 
+             Margin="30,0,0,0" 
+             Grid.Row="0" 
+             Grid.Column="1" 
+             Text="YOUR RESERVATIONS" 
+             TextColor="Black" 
+             FontAttributes="Bold"
+             FontSize="Header"
+             FontFamily="Helvetica"
+             ></Label>
 
             <Label 
-                Padding="10,0,0,0" 
-                Margin="30,0,0,0" 
-                Grid.Row="1" 
-                Grid.Column="1" 
-                Text="Welcome, User!" 
-                TextColor="Black" 
-                FontSize="Small"
-                FontFamily="San Francisco"
-            ></Label>
+             Padding="10,0,0,0" 
+             Margin="30,0,0,0" 
+             Grid.Row="1" 
+             Grid.Column="1" 
+             Text="View all your reservations!" 
+             TextColor="Black" 
+             FontSize="Small"
+             FontFamily="San Francisco"
+         ></Label>
 
         </Grid>
     </ScrollView>

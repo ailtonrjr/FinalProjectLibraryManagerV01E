@@ -12,8 +12,28 @@ namespace FinalProjectLibraryManagerV01E.Views;
 			InitializeComponent();
 		}
 
-    private void HomeUserBtn_Clicked_1(object sender, EventArgs e)
+    private void HomeUserBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+		Shell.Current.GoToAsync("..");
+    }
+
+    private void ReservationUserBtn_Clicked(object sender, EventArgs e)
+    {
+		Shell.Current.GoToAsync(nameof(YourReservationsUser));
+    }
+
+    private void LoansUserBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(YourLoansUser));
+    }
+
+    private void FinesPaymentsUserBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(YourFinesPaymentsUser));
+    }
+
+    private void SearchUserBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(SearchSelectUser));
     }
 }

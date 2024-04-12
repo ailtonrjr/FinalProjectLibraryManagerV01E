@@ -2,11 +2,144 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProjectLibraryManagerV01E.Views.Books"
-             Title="Books">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-</ContentPage>
+             Title="Books | Admin">
+  
+    <ScrollView>
+        <Grid  
+        BackgroundColor="GhostWhite"
+        Padding="0,20,20,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--<Button x:Name="Home_button"
+            Grid.Row="0"
+            Grid.Column="0" 
+            BackgroundColor="DarkGoldenrod" 
+            Text="Home"
+                    
+            ></Button>-->
+        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Margin="0,-110,0,-1000" Spacing="5" Padding="0,150" BackgroundColor="#212121">
+
+
+                <Button
+                    x:Name="homeBooksBtn"
+                    Text="Home"
+                    Clicked="homeBooksBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="White"
+                    FontFamily="San Francisco"
+                    BackgroundColor="#212121"
+                ></Button>
+            
+                <Button
+                    x:Name="bookBooksBtn"
+                    Text="Books"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    CornerRadius="0"
+                    FontSize="16"
+                    TextColor="Black"
+                    FontFamily="San Francisco"
+                    BackgroundColor="LightGray"
+                ></Button>
+
+                <Button 
+                    x:Name="StudentsBookBtn"
+                    Text="Users"
+                    Clicked="StudentsBookBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+                ></Button>
+
+                <Button 
+                    x:Name="searchBookBtn"
+                    Text="Search a book"
+                    Clicked="searchBookBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="White"
+                    FontFamily="San Francisco"
+                    Background="#212121"
+                ></Button>
+
+                <Button 
+                    x:Name="reservationBookBtn"
+                    Text="Reservations"
+                    Clicked="reservationBookBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+                ></Button>
+
+                <Button 
+                    x:Name="loansBookBtn"
+                    Text="Loans"
+                    Clicked="loansBookBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+            ></Button>
+
+                <Button 
+                    x:Name="finesPaymentsBookBtn"
+                    Text="Fines and Payments"
+                    Clicked="finesPaymentsBookBtn_Clicked"    
+                    TextTransform="Uppercase"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+            ></Button>
+
+            </VerticalStackLayout>
+
+
+            <Label 
+            Padding="10" 
+            Margin="30,0,0,0" 
+            Grid.Row="0" 
+            Grid.Column="1" 
+            Text="BOOK INVENTORY" 
+            TextColor="Black" 
+            FontAttributes="Bold"
+            FontSize="Header"
+            FontFamily="Helvetica"
+            ></Label>
+
+            <Label 
+            Padding="10,0,0,0" 
+            Margin="30,0,0,0" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Text="This is a page to control book's invetory" 
+            TextColor="Black" 
+            FontSize="Small"
+            FontFamily="San Francisco"
+        ></Label>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage>

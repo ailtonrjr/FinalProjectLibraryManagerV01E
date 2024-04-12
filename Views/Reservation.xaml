@@ -2,11 +2,142 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProjectLibraryManagerV01E.Views.Reservation"
-             Title="Reservation">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Reservations | Admin">
+
+
+    <ScrollView>
+        <Grid  
+     BackgroundColor="GhostWhite"
+     Padding="0,20,20,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <VerticalStackLayout
+                Grid.Row="1" 
+                Grid.Column="0" 
+                Margin="0,-110,0,-1000" 
+                Spacing="5" 
+                Padding="0,150" 
+                BackgroundColor="#212121">
+
+                <Button
+                    x:Name="homeReserBtn"
+                    Text="home"
+                    Clicked="homeReserBtn_Clicked_1"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="White"
+                    FontFamily="San Francisco"
+                    BackgroundColor="#212121"
+                ></Button>
+
+                <Button
+                    x:Name="booksUserBtn"
+                    Text="books"
+                    Clicked="booksUserBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="White"
+                    FontFamily="San Francisco"
+                    BackgroundColor="#212121"
+                ></Button>
+
+                <Button
+                    x:Name="usersUserBtn"
+                    Text="users"
+                    Clicked="usersUserBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="White"
+                    FontFamily="San Francisco"
+                    BackgroundColor="#212121"
+                ></Button>
+
+                <Button
+                    x:Name="searchUserBtn"
+                    Text="Search"
+                    Clicked="searchUserBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="White"
+                    FontFamily="San Francisco"
+                    BackgroundColor="#212121"
+                ></Button>
+
+                <Button
+                    x:Name="reservationsUserBtn"
+                    Text="Reservation"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    CornerRadius="0"
+                    FontSize="16"
+                    TextColor="Black"
+                    FontFamily="San Francisco"
+                    BackgroundColor="LightGray"
+                ></Button>
+
+                <Button
+                    x:Name="loansUserBtn"
+                    Text="Loans"
+                    Clicked="loansUserBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="White"
+                    FontFamily="San Francisco"
+                    BackgroundColor="#212121"
+                ></Button>
+
+                <Button
+                    x:Name="finesPaymentsUserBtn"
+                    Text="Fines and Payments"
+                    Clicked="finesPaymentsUserBtn_Clicked"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="White"
+                    FontFamily="San Francisco"
+                    BackgroundColor="#212121"
+                ></Button>
+
+            </VerticalStackLayout>
+
+            <Label 
+                Padding="10" 
+                Margin="30,0,0,0" 
+                Grid.Row="0" 
+                Grid.Column="1" 
+                Text="MAKE A RESERVATION" 
+                TextColor="Black" 
+                FontAttributes="Bold"
+                FontSize="Header"
+                FontFamily="Helvetica"
+            ></Label>
+
+            <Label 
+                Padding="10,0,0,0" 
+                Margin="30,0,0,0" 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                Text="Reservation System" 
+                TextColor="Black" 
+                FontSize="Small"
+                FontFamily="San Francisco"
+            ></Label>
+ 
+        </Grid>
+    </ScrollView>
 </ContentPage>

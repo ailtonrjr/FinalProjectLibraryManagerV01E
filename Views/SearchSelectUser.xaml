@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProjectLibraryManagerV01E.Views.HomepageCustomer"
-             Title="Library Management System | Students and Instrutors | User">
-   
-    
+             x:Class="FinalProjectLibraryManagerV01E.Views.SearchSelectUser"
+             Title="Search and Select | User">
+
+
     <ScrollView>
-        <Grid  
-            BackgroundColor="GhostWhite"
-            Padding="0,20,20,0">
-            
+        <Grid
+        
+        BackgroundColor="GhostWhite"
+        Padding="0,20,20,0">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -28,34 +29,35 @@
                 Spacing="5" 
                 Padding="0,150" 
                 BackgroundColor="#212121">
-                
-                <Button x:Name="HomeUserBtn"
-                    Clicked="HomeUserBtn_Clicked"
-                    Text="HOME"
+
+                <Button
+                x:Name="homeSearchUserBtn"
+                Text="HOME"
+                Clicked="homeSearchUserBtn_Clicked"
+                CornerRadius="0"
+                FontSize="16"
+                TextColor="White"
+                Background="#212121"
+                FontAttributes="Bold"
+                FontFamily="San Francisco"
+            ></Button>
+
+                <Button
+                    x:Name="SearchSearchUserBtn"
+                    Text="Search a book"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
                     CornerRadius="0"
                     FontSize="16"
                     TextColor="Black"
+                    FontFamily="San Francisco"
                     Background="LightGray"
-                    FontAttributes="Bold"
-                    FontFamily="San Francisco"
                 ></Button>
 
                 <Button
-                    x:Name="SearchUserBtn"
-                    Text="Search a book"
-                    Clicked="SearchUserBtn_Clicked"
-                    TextTransform="Uppercase"
-                    FontAttributes="Bold"
-                    FontSize="16"
-                    TextColor="White"
-                    FontFamily="San Francisco"
-                    Background="#212121"
-                ></Button>
-
-                <Button
-                    x:Name="ReservationUserBtn"
+                    x:Name="YourReservationSearchUserBtn"
                     Text="Your Reservations"
-                    Clicked="ReservationUserBtn_Clicked"
+                    Clicked="YourReservationSearchUserBtn_Clicked"
                     TextTransform="Uppercase"
                     FontSize="16"
                     FontAttributes="Bold"
@@ -64,11 +66,12 @@
                     FontFamily="San Francisco"
                 ></Button>
 
-                <Button
-                    x:Name="LoansUserBtn"
+                <Button 
+                    x:Name="LoansSearchUserBtn"
                     Text="Your Loans"
-                    Clicked="LoansUserBtn_Clicked"
+                    Clicked="LoansSearchUserBtn_Clicked"
                     TextTransform="Uppercase"
+                    CornerRadius="0"       
                     FontSize="16"
                     FontAttributes="Bold"
                     TextColor="White"
@@ -76,11 +79,12 @@
                     FontFamily="San Francisco"
                 ></Button>
 
-                <Button
-                    x:Name="FinesPaymentsUserBtn"
+                <Button 
+                    x:Name="FinesPaymentsSearchUserBtn"
                     Text="Fines and Payments"
-                    Clicked="FinesPaymentsUserBtn_Clicked"
+                    Clicked="FinesPaymentsSearchUserBtn_Clicked"
                     TextTransform="Uppercase"
+                    CornerRadius="0"
                     FontSize="16"
                     FontAttributes="Bold"
                     TextColor="White"
@@ -92,28 +96,30 @@
 
 
             <Label 
-                Padding="10" 
-                Margin="30,0,0,0" 
-                Grid.Row="0" 
-                Grid.Column="1" 
-                Text="Library Management System" 
-                TextColor="Black" 
-                FontAttributes="Bold"
-                FontSize="Header"
-                FontFamily="Helvetica"
-                ></Label>
+            Padding="10" 
+            Margin="30,0,0,0" 
+            Grid.Row="0" 
+            Grid.Column="1" 
+            Text="Search and select a book"
+            TextColor="Black" 
+            FontAttributes="Bold"
+            FontSize="Header"
+            FontFamily="Helvetica"
+        ></Label>
 
-            <Label 
-                Padding="10,0,0,0" 
-                Margin="30,0,0,0" 
-                Grid.Row="1" 
-                Grid.Column="1" 
-                Text="Welcome, User!" 
-                TextColor="Black" 
-                FontSize="Small"
-                FontFamily="San Francisco"
-            ></Label>
+            <Label
+            Padding="10,0,0,0" 
+            Margin="30,0,0,0" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Text="Insert a searchbar" 
+            TextColor="Black" 
+            FontSize="Small"
+            FontFamily="San Francisco"
+        ></Label>
 
         </Grid>
     </ScrollView>
+
+
 </ContentPage>

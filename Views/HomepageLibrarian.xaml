@@ -21,20 +21,15 @@
                 <ColumnDefinition Width="6*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             
-            <!--<Button x:Name="Home_button"
-                    Grid.Row="0"
-                    Grid.Column="0" 
-                    BackgroundColor="DarkGoldenrod" 
-                    Text="Home"
-                    
-                    ></Button>-->
+            
             <VerticalStackLayout Grid.Row="1" Grid.Column="0" Margin="0,-110,0,-1000" Spacing="5" Padding="0,150" BackgroundColor="#212121">
                 <Button x:Name="HomeAdmBtn"
                         Clicked="HomeAdmBtn_Clicked"
                         Text="HOME"
                         FontSize="16"
-                        TextColor="White"
-                        Background="#212121"
+                        CornerRadius="0"
+                        TextColor="Black"
+                        Background="LightGray"
                         FontAttributes="Bold"
                         FontFamily="San Francisco"
                 ></Button>
@@ -49,19 +44,20 @@
                         FontFamily="San Francisco"
                 ></Button>
 
-                    <Button x:Name="BooksAdmBtn"
-                        Text="BOOKS"
-                        FontSize="16"
-                        FontAttributes="Bold"
-                        TextColor="White"
-                        Background="#212121"
-                        FontFamily="San Francisco"
+                <Button 
+                    x:Name="BooksAdmBtn"
+                    Text="BOOKS"
+                    Clicked="BooksAdmBtn_Clicked"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Background="#212121"
+                    FontFamily="San Francisco"
                 ></Button>
 
                 <Button x:Name="StudentsAdmBtn"
-                        Grid.Row="0"
-                        Grid.Column="0" 
                         Text="Users"
+                        Clicked="StudentsAdmBtn_Clicked"
                         TextTransform="Uppercase"
                         FontSize="16"
                         FontAttributes="Bold"
@@ -71,8 +67,7 @@
                 ></Button>
 
                 <Button x:Name="SearchAdmBtn"
-                        Grid.Row="0"
-                        Grid.Column="0" 
+                        Clicked="SearchAdmBtn_Clicked"
                         Text="Search a book"
                         TextTransform="Uppercase"
                         FontAttributes="Bold"
@@ -83,8 +78,7 @@
                 ></Button>
 
                 <Button x:Name="ReservationsAdmBtn"
-                        Grid.Row="0"
-                        Grid.Column="0" 
+                        Clicked="ReservationsAdmBtn_Clicked"
                         Text="Reservations"
                         TextTransform="Uppercase"
                         FontSize="16"
@@ -95,6 +89,7 @@
                 ></Button>
 
                 <Button x:Name="LoansAdmBtn"
+                        Clicked="LoansAdmBtn_Clicked"
                         Text="Loans"
                         TextTransform="Uppercase"
                         FontSize="16"
@@ -106,21 +101,8 @@
                 ></Button>
 
 
-                <!--<Button x:Name="LoansHistoryAdmBtn"
-                        Grid.Row="0"
-                        Grid.Column="0" 
-                        BackgroundColor="DarkGoldenrod" 
-                        Text="Loans History"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        TextColor="White"
-                        BorderWidth="5"
-                        BorderColor="DarkGrey"
-                ></Button>-->
-
                 <Button x:Name="FinesAndPaymentsAdmBtn"
-                        Grid.Row="0"
-                        Grid.Column="0" 
+                        Clicked="FinesAndPaymentsAdmBtn_Clicked"
                         Text="Fines and Payments"
                         Background="#212121"
                         FontSize="16"
