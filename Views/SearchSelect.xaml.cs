@@ -6,4 +6,10 @@ public partial class SearchSelect : ContentPage
 	{
 		InitializeComponent();
 	}
+    private void OnSearchClicked(object sender, EventArgs e)
+    {        
+        string title = TitleEntry.Text;
+        string author = AuthorEntry.Text;
+        string category = CategoryEntry.Text;        
+    }
 }
