@@ -67,7 +67,7 @@
 
                 <Button
                     x:Name="searchUserBtn"
-                    Text="Search"
+                    Text="Search a book"
                     Clicked="searchUserBtn_Clicked"
                     TextTransform="Uppercase"
                     FontAttributes="Bold"
@@ -137,7 +137,44 @@
                 FontSize="Small"
                 FontFamily="San Francisco"
             ></Label>
- 
+
+
+            <!--Test, still being adjusted-->
+            <ScrollView Grid.Row="2" Grid.Column="1">
+                <VerticalStackLayout>
+
+                    <Label Text="Reserve a book"
+                           FontSize="Header"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"/>
+
+                    <Entry x:Name="TitleEntry"
+                           Placeholder="Enter Book Title"
+                           FontSize="20"
+                           Margin="0,0,0,10"/>
+
+                    <Entry x:Name="AuthorEntry"
+                           Placeholder="Enter Book Author"
+                           FontSize="20"
+                           Margin="0,0,0,10"/>
+
+                    <Entry x:Name="CategoryEntry"
+                           Placeholder="Enter Book Category"
+                           FontSize="20"
+                           Margin="0,0,0,10"/>
+
+                    <Button x:Name="ReservationButton"
+                            Text="RESERVE"
+                            FontSize="20"
+                            BackgroundColor="#0078D7"
+                            TextColor="White"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand"/>
+                </VerticalStackLayout>
+            </ScrollView>
+            <!--Final part test-->
+
         </Grid>
     </ScrollView>
 </ContentPage>

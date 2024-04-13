@@ -65,7 +65,7 @@
 
                 <Button
                     x:Name="searchSearchBtn"
-                    Text="Search"
+                    Text="Search a book"
                     TextTransform="Uppercase"
                     FontAttributes="Bold"
                     FontSize="16"
@@ -113,12 +113,48 @@
             </VerticalStackLayout>
 
             <!-- Input fields added from the remote version -->
-            <StackLayout Grid.Row="2" Grid.Column="1" Padding="20">
+            <!--<StackLayout Grid.Row="2" Grid.Column="1" Padding="20">
                 <Entry Placeholder="Book Title" x:Name="TitleEntry" Margin="0,0,0,10"/>
                 <Entry Placeholder="Book Author" x:Name="AuthorEntry" Margin="0,0,0,10"/>
                 <Entry Placeholder="Book Category" x:Name="CategoryEntry" Margin="0,0,0,10"/>
                 <Button Text="Search" Clicked="OnSearchClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
-            </StackLayout>
+            </StackLayout>-->
+
+            <!--Test, still being adjusted-->
+            <ScrollView Grid.Row="2" Grid.Column="1">
+                <VerticalStackLayout>
+
+                    <Label Text="Search and select a book"
+                       FontSize="Header"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+
+                    <Entry x:Name="TitleEntry"
+                           Placeholder="Enter Book Title"
+                           FontSize="20"
+                           Margin="0,0,0,10"/>
+                    
+                    <Entry x:Name="AuthorEntry"
+                           Placeholder="Enter Book Author"
+                           FontSize="20"
+                           Margin="0,0,0,10"/>
+                    
+                    <Entry x:Name="CategoryEntry"
+                           Placeholder="Enter Book Category"
+                           FontSize="20"
+                           Margin="0,0,0,10"/>
+
+                    <Button x:Name="SearchButton"
+                            Text="SEARCH"
+                            FontSize="20"
+                            BackgroundColor="#0078D7"
+                            TextColor="White"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand"/>
+                </VerticalStackLayout>
+            </ScrollView>
+            <!--Final part test-->
+            
 
             <Label 
                 Padding="10" 
@@ -164,6 +200,10 @@
                 Text="Type here"
                 TextColor="Black"
             />
+
+            
+
+
         </Grid>
     </ScrollView>
 </ContentPage>

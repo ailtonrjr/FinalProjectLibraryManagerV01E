@@ -68,7 +68,7 @@
             
                 <Button
                     x:Name="searchUserBtn"
-                    Text="Search"
+                    Text="Search a book"
                     Clicked="searchUserBtn_Clicked"
                     TextTransform="Uppercase"
                     FontAttributes="Bold"
