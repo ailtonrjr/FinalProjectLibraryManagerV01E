@@ -1,13 +1,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-<<<<<<< HEAD
              x:Class="FinalProjectLibraryManagerV01E.Views.SearchSelect"
              Title="Search and Select a Book | Admin">
 
     <ScrollView>
         <Grid  
-    BackgroundColor="GhostWhite"
-    Padding="0,20,20,0">
+            BackgroundColor="GhostWhite"
+            Padding="0,20,20,0">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
@@ -16,10 +15,9 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition  Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="6*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
 
             <VerticalStackLayout 
                 Grid.Row="1" 
@@ -31,7 +29,7 @@
 
                 <Button
                     x:Name="homeSearchBtn"
-                    Text="home"
+                    Text="Home"
                     Clicked="homeSearchBtn_Clicked"
                     TextTransform="Uppercase"
                     FontAttributes="Bold"
@@ -39,11 +37,11 @@
                     TextColor="White"
                     FontFamily="San Francisco"
                     BackgroundColor="#212121"
-                    ></Button>
+                />
 
                 <Button
                     x:Name="booksSearchBtn"
-                    Text="books"
+                    Text="Books"
                     Clicked="booksSearchBtn_Clicked"
                     TextTransform="Uppercase"
                     FontAttributes="Bold"
@@ -51,11 +49,11 @@
                     TextColor="White"
                     FontFamily="San Francisco"
                     BackgroundColor="#212121"
-                ></Button>
+                />
 
                 <Button
                     x:Name="usersSearchBtn"
-                    Text="users"
+                    Text="Users"
                     Clicked="usersSearchBtn_Clicked"
                     TextTransform="Uppercase"
                     FontAttributes="Bold"
@@ -63,7 +61,7 @@
                     TextColor="White"
                     FontFamily="San Francisco"
                     BackgroundColor="#212121"
-                ></Button>
+                />
 
                 <Button
                     x:Name="searchSearchBtn"
@@ -75,11 +73,11 @@
                     CornerRadius="0"
                     FontFamily="San Francisco"
                     BackgroundColor="LightGray"
-                ></Button>
+                />
 
                 <Button
                     x:Name="reservationsSearchBtn"
-                    Text="Reservation"
+                    Text="Reservations"
                     Clicked="reservationsSearchBtn_Clicked"
                     TextTransform="Uppercase"
                     FontAttributes="Bold"
@@ -87,7 +85,7 @@
                     TextColor="White"
                     FontFamily="San Francisco"
                     BackgroundColor="#212121"
-                ></Button>
+                />
 
                 <Button
                     x:Name="loansSearchBtn"
@@ -99,7 +97,7 @@
                     TextColor="White"
                     FontFamily="San Francisco"
                     BackgroundColor="#212121"
-                ></Button>
+                />
 
                 <Button
                     x:Name="finesPaymentsSearchBtn"
@@ -111,8 +109,16 @@
                     TextColor="White"
                     FontFamily="San Francisco"
                     BackgroundColor="#212121"
-                ></Button>
+                />
             </VerticalStackLayout>
+
+            <!-- Input fields added from the remote version -->
+            <StackLayout Grid.Row="2" Grid.Column="1" Padding="20">
+                <Entry Placeholder="Book Title" x:Name="TitleEntry" Margin="0,0,0,10"/>
+                <Entry Placeholder="Book Author" x:Name="AuthorEntry" Margin="0,0,0,10"/>
+                <Entry Placeholder="Book Category" x:Name="CategoryEntry" Margin="0,0,0,10"/>
+                <Button Text="Search" Clicked="OnSearchClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
+            </StackLayout>
 
             <Label 
                 Padding="10" 
@@ -124,70 +130,40 @@
                 FontAttributes="Bold"
                 FontSize="Header"
                 FontFamily="Helvetica"
-                ></Label>
+            />
 
             <Label 
-            Padding="10,0,0,0" 
-            Margin="30,0,0,0" 
-            Grid.Row="1" 
-            Grid.Column="1" 
-            Text="Insert a searchbar" 
-            TextColor="Black" 
-            FontSize="Small"
-            FontFamily="San Francisco"
-            ></Label>
+                Padding="10,0,0,0" 
+                Margin="30,0,0,0" 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                Text="Insert a search bar" 
+                TextColor="Black" 
+                FontSize="Small"
+                FontFamily="San Francisco"
+            />
 
             <Label
                 Padding="10,0,0,0" 
                 Margin="30,0,0,0" 
-                Text="test for a searchbar" 
+                Text="Test for a search bar" 
                 TextColor="Black" 
                 FontSize="Small"
                 FontFamily="San Francisco"
                 Grid.Row="2" 
                 Grid.Column="1" 
-                
-             ></Label>
-
+            />
 
             <SearchBar
-                
                 Margin="30,0,0,0" 
                 Grid.Row="3" 
                 Grid.Column="1"
                 BackgroundColor="Yellow"
                 HeightRequest="50"
                 WidthRequest="300"
-                Text="Digite aqui"
+                Text="Type here"
                 TextColor="Black"
-                
-
-            ></SearchBar>
-            
-            
-            
-            
+            />
         </Grid>
-        
     </ScrollView>
-
 </ContentPage>
-=======
-             x:Class="FinalProjectLibraryManagerV01E.Views.SearchSelect">
-    <StackLayout Padding="20">
-        <Label Text="Search Books" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,20"/>
-
-        <!-- Input field for book title -->
-        <Entry Placeholder="Book Title" x:Name="TitleEntry" Margin="0,0,0,10"/>
-
-        <!-- Input field for book author -->
-        <Entry Placeholder="Book Author" x:Name="AuthorEntry" Margin="0,0,0,10"/>
-
-        <!-- Input field for book category -->
-        <Entry Placeholder="Book Category" x:Name="CategoryEntry" Margin="0,0,0,10"/>
-
-        <!-- Search button -->
-        <Button Text="Searchr" Clicked="OnSearchClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
-    </StackLayout>
-</ContentPage>
->>>>>>> 6be35bbfa84f15bf56cd966f0ee94b8e955ab122
