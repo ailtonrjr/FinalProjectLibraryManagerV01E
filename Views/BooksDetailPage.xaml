@@ -2,14 +2,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProjectLibraryManagerV01E.Views.BookDetailPage">
     <StackLayout Padding="20">
-        <Label Text="Detalhes do Livro" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,20"/>
+        <Label Text="Book Details" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,20"/>
 
         <!-- Book Title -->
-        <Label Text="Título:" FontSize="18" />
+        <Label Text="Title:" FontSize="18" />
         <Label Text="{Binding Title}" FontSize="16" Margin="0,0,0,10"/>
 
         <!-- Book author -->
-        <Label Text="Autor:" FontSize="18" />
+        <Label Text="Author:" FontSize="18" />
         <Label Text="{Binding Author}" FontSize="16" Margin="0,0,0,10"/>
 
         <!-- Book ISBN  -->

@@ -143,32 +143,37 @@
             <ScrollView Grid.Row="2" Grid.Column="1">
                 <VerticalStackLayout>
 
-                    <Label Text="Reserve a book"
-                           FontSize="Header"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           TextColor="Black"/>
-
+                    
                     <Entry x:Name="TitleEntry"
                            Placeholder="Enter Book Title"
+                           BackgroundColor ="LightGray"
+                           WidthRequest="600"
+                           HorizontalOptions="Center"
                            FontSize="20"
                            Margin="0,0,0,10"/>
 
                     <Entry x:Name="AuthorEntry"
                            Placeholder="Enter Book Author"
+                           BackgroundColor ="LightGray"
+                           WidthRequest="600"
+                           HorizontalOptions="Center"
                            FontSize="20"
                            Margin="0,0,0,10"/>
 
                     <Entry x:Name="CategoryEntry"
                            Placeholder="Enter Book Category"
+                           BackgroundColor ="LightGray"
+                           WidthRequest="600"
+                           HorizontalOptions="Center"
                            FontSize="20"
                            Margin="0,0,0,10"/>
 
                     <Button x:Name="ReservationButton"
                             Text="RESERVE"
                             FontSize="20"
-                            BackgroundColor="#0078D7"
                             TextColor="White"
+                            WidthRequest="300"
+                            BackgroundColor="Black"
                             HeightRequest="50"
                             HorizontalOptions="FillAndExpand"/>
                 </VerticalStackLayout>

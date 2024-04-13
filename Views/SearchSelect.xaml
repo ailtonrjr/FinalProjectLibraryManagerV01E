@@ -124,31 +124,41 @@
             <ScrollView Grid.Row="2" Grid.Column="1">
                 <VerticalStackLayout>
 
-                    <Label Text="Search and select a book"
+                    <!--<Label Text="Search and select a book"
                        FontSize="Header"
                        HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
+                       VerticalOptions="Center"/>-->
 
                     <Entry x:Name="TitleEntry"
                            Placeholder="Enter Book Title"
+                           BackgroundColor ="LightGray"
+                           WidthRequest="600"
+                           HorizontalOptions="Center"
                            FontSize="20"
                            Margin="0,0,0,10"/>
                     
                     <Entry x:Name="AuthorEntry"
                            Placeholder="Enter Book Author"
+                           BackgroundColor ="LightGray"
+                           WidthRequest="600"
+                           HorizontalOptions="Center"
                            FontSize="20"
                            Margin="0,0,0,10"/>
                     
                     <Entry x:Name="CategoryEntry"
                            Placeholder="Enter Book Category"
+                           BackgroundColor ="LightGray"
+                           WidthRequest="600"
+                           HorizontalOptions="Center"
                            FontSize="20"
                            Margin="0,0,0,10"/>
 
                     <Button x:Name="SearchButton"
                             Text="SEARCH"
                             FontSize="20"
-                            BackgroundColor="#0078D7"
                             TextColor="White"
+                            WidthRequest="300"
+                            BackgroundColor="Black"
                             HeightRequest="50"
                             HorizontalOptions="FillAndExpand"/>
                 </VerticalStackLayout>
@@ -190,7 +200,7 @@
                 Grid.Column="1" 
             />
 
-            <SearchBar
+            <!--<SearchBar
                 Margin="30,0,0,0" 
                 Grid.Row="3" 
                 Grid.Column="1"
@@ -199,7 +209,7 @@
                 WidthRequest="300"
                 Text="Type here"
                 TextColor="Black"
-            />
+            />-->
 
             
 
