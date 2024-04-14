@@ -1,8 +1,8 @@
 namespace FinalProjectLibraryManagerV01E.Views;
 
-public partial class Reservation : ContentPage
+public partial class ReservationPage : ContentPage
 {
-	public Reservation()
+	public ReservationPage()
 	{
 		InitializeComponent();
 	}

@@ -37,7 +37,7 @@ public partial class HomepageLibrarian : ContentPage
 
     private void SearchAdmBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(SearchSelect));
+        Shell.Current.GoToAsync(nameof(TestPage));
     }
 
     private void ReservationsAdmBtn_Clicked(object sender, EventArgs e)
@@ -53,5 +53,10 @@ public partial class HomepageLibrarian : ContentPage
     private void FinesAndPaymentsAdmBtn_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
+    }
+
+    private void Test_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(BooksPage));
     }
 }

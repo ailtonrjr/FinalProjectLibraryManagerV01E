@@ -13,7 +13,7 @@ namespace FinalProjectLibraryManagerV01E.Views
         private async void OnBookTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item is Book selectedBook)
-            {                
+            {
                 await Shell.Current.Navigation.PushAsync(new BookDetailPage(selectedBook));
             }
         }

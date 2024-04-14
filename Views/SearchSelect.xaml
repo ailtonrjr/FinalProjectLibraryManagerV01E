@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProjectLibraryManagerV01E.Views.SearchSelect"
-             Title="Search and Select a Book | Admin">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="FinalProjectLibraryManagerV01E.Views.SearchSelect"
+            Title="Search and Select a Book | Admin">
 
     <ScrollView>
         <Grid  
@@ -121,56 +122,174 @@
             </StackLayout>-->
 
             <!--Test, still being adjusted-->
+
             <ScrollView Grid.Row="2" Grid.Column="1">
-                <VerticalStackLayout>
+
+                <VerticalStackLayout
+                    Spacing="30">
+
+                     
+                    <HorizontalStackLayout
+                        Padding="30,5,5,0"
+                        Spacing="32"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+
+
+                        <Label
+                            x:Name="searchForTitle"
+                            Text="TITLE:"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            Padding="10,10,0,10"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            
+                            />
+                   
+                        <SearchBar
+                            x:Name="TitleEntry"
+                            Placeholder="Enter Book Title"
+                            BackgroundColor ="LightGray"
+                            WidthRequest="400"
+                            HorizontalOptions="Center"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            Margin="35,0,0,10"/>
+
+                    </HorizontalStackLayout>
 
                     <!--<Label Text="Search and select a book"
                        FontSize="Header"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>-->
 
-                    <Entry x:Name="TitleEntry"
-                           Placeholder="Enter Book Title"
-                           BackgroundColor ="LightGray"
-                           WidthRequest="600"
-                           HorizontalOptions="Center"
-                           FontSize="20"
-                           Margin="0,0,0,10"/>
-                    
-                    <Entry x:Name="AuthorEntry"
-                           Placeholder="Enter Book Author"
-                           BackgroundColor ="LightGray"
-                           WidthRequest="600"
-                           HorizontalOptions="Center"
-                           FontSize="20"
-                           Margin="0,0,0,10"/>
-                    
-                    <Entry x:Name="CategoryEntry"
-                           Placeholder="Enter Book Category"
-                           BackgroundColor ="LightGray"
-                           WidthRequest="600"
-                           HorizontalOptions="Center"
-                           FontSize="20"
-                           Margin="0,0,0,10"/>
+                    <HorizontalStackLayout
+                        Padding="30,5,5,0"
+                        Spacing="32"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        >
 
+                        <Label
+                            x:Name="searchForAuthor"
+                            Text="AUTHOR: "
+                            FontSize="16"
+                            VerticalOptions="Center"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            Padding="10"
+                            HorizontalOptions="Start"
+                            />
+
+                        <Entry 
+                            x:Name="authorEntry"
+                            Placeholder="Enter Book Title"
+                            BackgroundColor ="LightGray"
+                            WidthRequest="400"
+                            HorizontalOptions="Center"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            Margin="0,0,0,10"/>
+
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout
+                        Padding="30,5,5,0"
+                        Spacing="30"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        >
+
+                        <Label
+                            x:Name="searchForCategory"
+                            Text="CATEGORY:  "
+                            VerticalOptions="Center"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            Padding="0,10,10,20"
+                            HorizontalOptions="Start"/>
+
+                        <Entry 
+                            x:Name="categoryEntry"
+                            Placeholder="Enter Book Title"
+                            BackgroundColor ="LightGray"
+                            WidthRequest="400"
+                            HorizontalOptions="Center"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            Margin="0,0,0,10"/>
+
+                    </HorizontalStackLayout>
+
+                    
                     <Button x:Name="SearchButton"
+                            Margin="55,50,0,10"                            
                             Text="SEARCH"
+                            FontFamily="San Francisco"
+                            FontAttributes="Bold"
                             FontSize="20"
                             TextColor="White"
                             WidthRequest="300"
                             BackgroundColor="Black"
                             HeightRequest="50"
-                            HorizontalOptions="FillAndExpand"/>
+                            Clicked="SearchButton_Clicked"
+                            />
+
+
+                    <HorizontalStackLayout
+                        Padding="30"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            x:Name="searchResult"
+                            Text="Results for your search:"
+                            VerticalOptions="Center"
+                            FontSize="20"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Start"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout
+                        Padding="30"
+                        HorizontalOptions="Center"
+                        Margin="0,-70">
+
+                            <Border
+                            StrokeLineCap="Round"
+                            Stroke="Gray">
+                            
+                            <Picker 
+                                x:Name="searchPicker" 
+                                HeightRequest="20"
+                                WidthRequest="1000"
+                                TextColor="Black"
+                                SelectedIndexChanged="searchPicker_SelectedIndexChanged">
+
+
+                                <!--SelectedIndexChanged="MyPicker_SelectedIndexChanged"-->
+                            </Picker>
+
+                        </Border>
+
+
+                    </HorizontalStackLayout>
+
                 </VerticalStackLayout>
             </ScrollView>
             <!--Final part test-->
             
-
-            <Label 
+            
+            <Label Grid.Column="1" Grid.Row="0"
                 Padding="10" 
                 Margin="30,0,0,0" 
-                Grid.Row="0" 
-                Grid.Column="1" 
                 Text="Search and select a book" 
                 TextColor="Black" 
                 FontAttributes="Bold"
@@ -189,7 +308,8 @@
                 FontFamily="San Francisco"
             />
 
-            <Label
+            
+            <!--<Label
                 Padding="10,0,0,0" 
                 Margin="30,0,0,0" 
                 Text="Test for a search bar" 
@@ -198,7 +318,7 @@
                 FontFamily="San Francisco"
                 Grid.Row="2" 
                 Grid.Column="1" 
-            />
+            />-->
 
             <!--<SearchBar
                 Margin="30,0,0,0" 
@@ -210,9 +330,7 @@
                 Text="Type here"
                 TextColor="Black"
             />-->
-
             
-
 
         </Grid>
     </ScrollView>

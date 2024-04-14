@@ -66,11 +66,20 @@
 	  <Compile Update="Views\ActiveLoans.xaml.cs">
 	    <DependentUpon>ActiveLoans.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\BookDetailPage.xaml.cs">
+	    <DependentUpon>BookDetailPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\HomepageCustomer.xaml.cs">
 	    <DependentUpon>HomepageCustomer.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\HomepageLibrarian.xaml.cs">
 	    <DependentUpon>HomepageLibrarian.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ReservationPage.xaml.cs">
+	    <DependentUpon>ReservationPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TestPage.xaml.cs">
+	    <DependentUpon>TestPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -84,7 +93,7 @@
 	  <MauiXaml Update="Views\Books.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\BooksDetailPage.xaml">
+	  <MauiXaml Update="Views\BookDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\BooksPage.xaml">
@@ -108,7 +117,10 @@
 	  <MauiXaml Update="Views\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Reservation.xaml">
+	  <MauiXaml Update="Views\TestPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ReservationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SearchSelect.xaml">

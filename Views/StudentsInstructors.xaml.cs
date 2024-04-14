@@ -25,7 +25,7 @@ public partial class StudentsInstructors : ContentPage
 
     private void reservationsUserBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(Reservation));
+        Shell.Current.GoToAsync(nameof(ReservationPage));
     }
 
     private void loansUserBtn_Clicked(object sender, EventArgs e)

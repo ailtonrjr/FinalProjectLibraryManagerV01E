@@ -27,13 +27,19 @@
             Text="Home"
                     
             ></Button>-->
-        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Margin="0,-110,0,-1000" Spacing="5" Padding="0,150" BackgroundColor="#212121">
+        <VerticalStackLayout
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Margin="0,-110,0,-1000" 
+            Spacing="5" 
+            Padding="0,150" 
+            BackgroundColor="#212121">
 
 
                 <Button
                     x:Name="homeBooksBtn"
                     Text="Home"
-                    Clicked="homeBooksBtn_Clicked"
+                    Clicked="homeBooksBtn_Clicked_1"
                     TextTransform="Uppercase"
                     FontAttributes="Bold"
                     FontSize="16"

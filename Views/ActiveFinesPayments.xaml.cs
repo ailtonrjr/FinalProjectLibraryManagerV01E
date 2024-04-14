@@ -29,7 +29,7 @@ public partial class ActiveFinesPayments : ContentPage
 
     private void reservationsFinPayBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(Reservation));
+        Shell.Current.GoToAsync(nameof(ReservationPage));
     }
 
     private void loansFinPayBtn_Clicked(object sender, EventArgs e)

@@ -7,7 +7,7 @@ public partial class Books : ContentPage
 		InitializeComponent();
 	}
 
-    private void homeBooksBtn_Clicked(object sender, EventArgs e)
+    private void homeBooksBtn_Clicked_1(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("..");
     }
@@ -36,4 +36,6 @@ public partial class Books : ContentPage
     {
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
     }
+
+    
 }

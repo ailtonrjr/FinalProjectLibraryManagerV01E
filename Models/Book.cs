@@ -21,7 +21,12 @@ namespace FinalProjectLibraryManagerV01E.Models
         {
             this.Title = title;
             this.Author = author;
-            
+        
+        }
+
+        public string ToDisplay()
+        {
+            return $"{Title}, {Author}, {ISBN}";
         }
 
     }    
