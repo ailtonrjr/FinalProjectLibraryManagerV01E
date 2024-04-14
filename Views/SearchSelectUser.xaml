@@ -205,6 +205,48 @@
                             HeightRequest="50"
                             Clicked="SearchButtonUser_Clicked"/>
 
+
+                    <HorizontalStackLayout
+                        Padding="30"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            x:Name="searchResult"
+                            Text="Results for your search:"
+                            VerticalOptions="Center"
+                            FontSize="20"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Start"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout
+                        Padding="30"
+                        HorizontalOptions="Center"
+                        Margin="0,-70">
+
+                        <Border
+                            StrokeLineCap="Round"
+                            Stroke="Gray">
+
+                            <Picker 
+                                x:Name="searchPickerUser" 
+                                HeightRequest="20"
+                                WidthRequest="1000"
+                                TextColor="Black"
+                                SelectedIndexChanged="searchPickerUser_SelectedIndexChanged">
+
+
+                                <!--SelectedIndexChanged="MyPicker_SelectedIndexChanged"-->
+                            </Picker>
+
+                        </Border>
+
+
+                    </HorizontalStackLayout>
+
+
                 </VerticalStackLayout>
 
             </ScrollView>
