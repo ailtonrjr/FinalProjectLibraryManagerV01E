@@ -145,9 +145,8 @@
                             FontAttributes="Bold"
                             Padding="10,10,0,10"
                             VerticalOptions="Center"
-                            HorizontalOptions="Center"
-                            
-                            />
+                            HorizontalOptions="Center"/>
+                              
                    
                         <SearchBar
                             x:Name="TitleEntry"
