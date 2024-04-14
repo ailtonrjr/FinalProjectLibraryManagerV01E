@@ -4,10 +4,8 @@
              x:Class="FinalProjectLibraryManagerV01E.Views.SearchSelectUser"
              Title="Search and Select | User">
 
-
     <ScrollView>
-        <Grid
-        
+        <Grid      
         BackgroundColor="GhostWhite"
         Padding="0,20,20,0">
 
@@ -95,6 +93,125 @@
             </VerticalStackLayout>
 
 
+            <ScrollView Grid.Row="2" Grid.Column="1">
+
+                <VerticalStackLayout
+                    Spacing="30">
+
+
+                    <HorizontalStackLayout
+                        Padding="30,5,5,0"
+                        Spacing="32"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+
+
+                        <Label
+                            x:Name="searchForTitleUser"
+                            Text="TITLE:"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            Padding="10,10,0,10"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+
+
+
+                        <SearchBar
+                            x:Name="TitleEntryUser"
+                            Placeholder="Enter Book Title"
+                            BackgroundColor ="LightGray"
+                            WidthRequest="400"
+                            HorizontalOptions="Center"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            Margin="35,0,0,10"/>
+
+                    </HorizontalStackLayout>
+
+
+                    <HorizontalStackLayout
+                        Padding="30,5,5,0"
+                        Spacing="32"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        >
+
+                        <Label
+                            x:Name="searchForAuthorUser"
+                            Text="AUTHOR: "
+                            FontSize="16"
+                            VerticalOptions="Center"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            Padding="10"
+                            HorizontalOptions="Start"/>
+                            
+
+                        <Entry 
+                            x:Name="authorEntryUser"
+                            Placeholder="Enter Book Title"
+                            BackgroundColor ="LightGray"
+                            WidthRequest="400"
+                            HorizontalOptions="Center"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            Margin="0,0,0,10"/>
+
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout
+                        Padding="30,5,5,0"
+                        Spacing="30"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        >
+
+                        <Label
+                            x:Name="searchForCategoryUser"
+                            Text="CATEGORY:  "
+                            VerticalOptions="Center"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            Padding="0,10,10,20"
+                            HorizontalOptions="Start"/>
+
+                        <Entry 
+                            x:Name="categoryEntryUser"
+                            Placeholder="Enter Book Title"
+                            BackgroundColor ="LightGray"
+                            WidthRequest="400"
+                            HorizontalOptions="Center"
+                            FontSize="16"
+                            FontFamily="San Francisco"
+                            Margin="0,0,0,10"/>
+
+                    </HorizontalStackLayout>
+
+                    <Button x:Name="SearchButtonUser"
+                            Margin="55,50,0,10"                            
+                            Text="SEARCH"
+                            FontFamily="San Francisco"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            TextColor="White"
+                            WidthRequest="300"
+                            BackgroundColor="Black"
+                            HeightRequest="50"/>
+                    <!--Clicked="SearchButtonUser_Clicked"/>-->
+
+                </VerticalStackLayout>
+
+            </ScrollView>
+
+
+
+
             <Label 
             Padding="10" 
             Margin="30,0,0,0" 
@@ -105,7 +222,7 @@
             FontAttributes="Bold"
             FontSize="Header"
             FontFamily="Helvetica"
-        ></Label>
+            ></Label>
 
             <Label
             Padding="10,0,0,0" 
@@ -116,10 +233,12 @@
             TextColor="Black" 
             FontSize="Small"
             FontFamily="San Francisco"
-        ></Label>
+            ></Label>
 
         </Grid>
     </ScrollView>
 
 
 </ContentPage>
+    
+    
