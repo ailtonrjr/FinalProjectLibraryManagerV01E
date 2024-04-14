@@ -30,27 +30,27 @@ public partial class SearchSelectUser : ContentPage
         Shell.Current.GoToAsync(nameof(YourFinesPaymentsUser));
     }
 
-    private void SearchButton_ClickedUser(object sender, EventArgs e)
+    private void SearchButtonUser_Clicked(object sender, EventArgs e)
     {
-        //    string insertedTitle = searchForAuthor.Text;
-        //    string insertedAuthor = searchForTitle.Text;
+        //string insertedTitle = searchForAuthor.Text;
+        //string insertedAuthor = searchForTitle.Text;
 
 
-        //    List<Book> foundBooks = BookManager.SearchBooksCombined(insertedTitle, insertedAuthor);
+        //List<Book> foundBooks = BookManager.SearchBooksCombined(insertedTitle, insertedAuthor);
 
-        //    foreach (Book book in foundBooks)
+        //foreach (Book book in foundBooks)
+        //{
+        //    if (book != null)
         //    {
-        //        if (book != null)
-        //        {
-        //            searchPicker.Items.Add(book.ToDisplay());
-        //        }
-
-        //        else
-        //        {
-        //            searchPicker.Items.Add("No books found");
-        //        }
-
+        //        searchPicker.Items.Add(book.ToDisplay());
         //    }
+
+        //    else
+        //    {
+        //        searchPicker.Items.Add("No books found");
+        //    }
+
+        //}
 
     }
 }

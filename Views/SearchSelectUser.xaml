@@ -202,8 +202,8 @@
                             TextColor="White"
                             WidthRequest="300"
                             BackgroundColor="Black"
-                            HeightRequest="50"/>
-                    <!--Clicked="SearchButtonUser_Clicked"/>-->
+                            HeightRequest="50"
+                            Clicked="SearchButtonUser_Clicked"/>
 
                 </VerticalStackLayout>
 
