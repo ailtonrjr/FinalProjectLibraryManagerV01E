@@ -6,34 +6,33 @@ using System.Threading.Tasks;
 
 namespace FinalProjectLibraryManagerV01E.Models
 {
-    internal class Loan
+    public class Loan
     {
+        public string LoanID { get; set; }
         public Book Book { get; set; }
         public Student Student { get; set; }
         public Instructor Instructor { get; set; }
         public DateTime DateBorrowed { get; set; }
-        public DateTime DueDate { get; set; }
         public bool IsActive { get; set; }
-        public string LoanID { get; set; }
-
-
-        public Loan() { }
-
-        public Loan (Book book, Student student, DateTime dateBorrowed, DateTime dueDate)
+        public DateTime DueDate { get; set; }
+        public Loan(string LoanId, Book book, Student student, DateTime DateBorrowed, DateTime DueDate, bool IsActive = true)
         {
-            this.Book = book;
-            this.Student = student;
-            this.DateBorrowed = dateBorrowed;
-            this.DueDate = dueDate;
+            LoanID = LoanId;
+            Book = book;
+            Student = student;
+            Instructor = null;
+            this.DateBorrowed = DateBorrowed;
+            this.DueDate = DueDate;
         }
-
-        public Loan(Book book, Instructor instructor, DateTime dateBorrowed, DateTime dueDate)
+        public Loan(string LoanId, Book book, Instructor instructor, DateTime DateBorrowed, DateTime DueDate, bool IsActive = true)
         {
-            this.Book = book;
+            LoanID = LoanId;
+            Book = book;
             this.Instructor = instructor;
-            this.DateBorrowed = dateBorrowed;
-            this.DueDate = dueDate;
+            Student = null;
+            this.DateBorrowed = DateBorrowed;
+            this.DueDate = DueDate;
         }
 
-    }    
+    }
 }

@@ -68,29 +68,40 @@ public partial class SearchSelect : ContentPage
 
     }
 
-    private void SearchButton_Clicked(object sender, EventArgs e)
-    {
-        string insertedTitle = searchForAuthor.Text;
-        string insertedAuthor = searchForTitle.Text;
+    //private void SearchButton_Clicked(object sender, EventArgs e)
+    //{
+    //    string insertedTitle = searchForAuthor.Text;
+    //    string insertedAuthor = searchForTitle.Text;
 
+    //    List<Book> foundBooks = new List<Book>();
 
-       List<Book> foundBooks = BookManager.SearchBooksCombined(insertedTitle, insertedAuthor);
+    //    if (title_clicked)
+    //    {
+    //        foundBooks = BookManager.SearchBooksByTitle(title : insertedTitle);
+    //    }
 
-        foreach (Book book in foundBooks) 
-        {
-            if(book != null)
-            {
-                searchPicker.Items.Add(book.ToDisplay());
-            }
+    //    if (author_clicked)
+    //    {
+    //        foundBooks = BookManager.SearchBooksByAuthor(author : insertedAuthor);
+    //    }
 
-            else
-            {
-                searchPicker.Items.Add("No books found");
-            }
-        
-        }
+    //    foreach (Book book in foundBooks)
+    //    {
+    //        if (book != null)
+    //        {
+    //            //mostrar no picker
+    //            searchPicker.Items.Add(book.ToDisplay());
+    //        }
 
-    }
+    //        else
+    //        {
+    //            //mostrar no picker
+    //            searchPicker.Items.Add(book.ToDisplay());
+    //        }
+
+    //    }
+
+    //}
     //=======
     //    private void OnSearchClicked(object sender, EventArgs e)
     //    {        

@@ -6,24 +6,27 @@ using System.Threading.Tasks;
 
 namespace FinalProjectLibraryManagerV01E.Models
 {
-    internal class Instructor
+    public class Instructor
     {
         public string Name { get; set; }
         public string ID { get; set; }
-        public string password { get; set; }
-        public bool HasBorrowed { get; set; }
-        public List<Book> BorroewdBooks { get; set; }
+        string password;
+        public string Password { get { return password; } }
+        public List<Book> books { get; set; }
         public bool IsFined { get; set; }
-        public int TotalFines { get; set; }
+        public bool HasBorrowed { get; set; }
+        public int TotalFine { get; set; }
 
-        public Instructor() { }
-
-        public Instructor (string name, string iD, string password, bool hasBorrowed, List<Book> borroewdBooks, bool isFined, int totalFines)
+        public Instructor(string Name, string id, string password)
         {
-            this.Name = name;
-            this.ID = iD;
+            this.Name = Name;
+            ID = id;
             this.password = password;
+            IsFined = false;
+            TotalFine = 0;
+            HasBorrowed = false;
 
         }
+
     }
 }

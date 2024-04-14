@@ -6,35 +6,41 @@ using System.Threading.Tasks;
 
 namespace FinalProjectLibraryManagerV01E.Models
 {
-    internal class Fine
+    public class Fine
     {
-        //public const fineRate;
-
+        public string ID { get; set; }
+        public Book book { get; set; }
         public Student Student { get; set; }
         public Instructor Instructor { get; set; }
         public decimal Amount { get; set; }
-        public Loan Loan { get; set; }
+        public Loan loan { get; set; }
         public bool IsActive { get; set; }
         public int DaysOverdue { get; set; }
-        public string FineID { get; set; }
-
-        public Fine() { }
-
-        public Fine(Student student, Loan loan, bool IsActive)
+        public Fine(string iD, Book book, Student student, decimal amount, Loan loan, bool isActive, int daysOverdue)
         {
-            this.Student = student;
-            this.Loan = loan;
-            this.IsActive = IsActive;
-
+            ID = iD;
+            this.book = book;
+            Student = student;
+            Instructor = null;
+            this.loan = loan;
+            IsActive = true;
+            DaysOverdue = 1;
+            Amount = CalculateFine(DaysOverdue);
         }
-
-        public Fine(Instructor instructor, Loan loan, bool IsActive)
+        public Fine(string iD, Book book, Instructor instructor, decimal amount, Loan loan, bool isActive, int daysOverdue)
         {
-            this.Instructor = instructor;
-            this.Loan = loan;
-            this.IsActive = IsActive;
-
+            ID = iD;
+            this.book = book;
+            Instructor = instructor;
+            Student = null;
+            this.loan = loan;
+            IsActive = true;
+            DaysOverdue = 1;
+            Amount = CalculateFine(DaysOverdue);
         }
-
+        public int CalculateFine(int DaysOverdue)
+        {
+            return 5 * DaysOverdue;
+        }
     }
 }

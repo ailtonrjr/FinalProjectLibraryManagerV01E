@@ -37,7 +37,7 @@ public partial class HomepageLibrarian : ContentPage
 
     private void SearchAdmBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(TestPage));
+        Shell.Current.GoToAsync(nameof(SearchSelect));
     }
 
     private void ReservationsAdmBtn_Clicked(object sender, EventArgs e)

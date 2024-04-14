@@ -8,6 +8,7 @@ namespace FinalProjectLibraryManagerV01E.Models
 {
     public class Book
     {
+        public string BookID { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
         public int Rating { get; set; }
@@ -21,12 +22,11 @@ namespace FinalProjectLibraryManagerV01E.Models
         {
             this.Title = title;
             this.Author = author;
-        
         }
 
         public string ToDisplay()
         {
-            return $"{Title}, {Author}, {ISBN}";
+            return $" {BookID} , {Title}, {Author}";
         }
 
     }    

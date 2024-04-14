@@ -16,13 +16,15 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             new Book{Title = "Tomorrowland", Author = "Myself", ISBN = "Comedy"},
         };
 
-
-
-        
-        //public static AddBook(Book book)
-        //{
-        //    books.Add(book);
-        //}
+        public static void AddBook(Book newBook)
+        {
+            if (newBook != null)
+            {
+                var MaxID = books.Max(x => x.BookID);
+                newBook.BookID = MaxID + 1;
+                books.Add(newBook);
+            }
+        }
 
         public static List<Book> GetAllBooks()
         {
@@ -59,12 +61,28 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             return booksFound;
         }
 
-        public static List<Book>SearchBooksCombined (string title, string author)
+        public static List<Book>SearchBooksByTitle(string title)
         {
+            //insert a RadioButton on the page the differentiate the methods invoked
             List<Book> foundBooks = new List<Book>();
             foreach (var book in books)
             {
-                if (book.Title == title && book.Author == author)
+                if (book.Title == title)
+                {
+                    foundBooks.Add(book);
+                }
+            }
+
+            return foundBooks;
+        }
+
+        public static List<Book> SearchBooksByAuthor(string author)
+        {
+            //insert a RadioButton on the page the differentiate the methods invoked
+            List<Book> foundBooks = new List<Book>();
+            foreach (var book in books)
+            {
+                if (book.Author == author)
                 {
                     foundBooks.Add(book);
                 }
@@ -110,6 +128,16 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
         //public static void RemoveBook (string bookTitle)
         //{
         //    books.Remove(book);
-        //}        
+        //}
+        //
+        public static void DeleteBookd(string bookID)
+        {
+            var bookToDelete = books.FirstOrDefault(x => x.BookID == bookID);
+
+            if (bookToDelete != null)
+            {
+                books.Remove(bookToDelete);
+            }
+        }
     }
 }

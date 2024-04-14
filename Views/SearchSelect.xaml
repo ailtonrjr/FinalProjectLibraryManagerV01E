@@ -227,7 +227,7 @@
 
                     </HorizontalStackLayout>
 
-                    
+
                     <Button x:Name="SearchButton"
                             Margin="55,50,0,10"                            
                             Text="SEARCH"
@@ -237,9 +237,9 @@
                             TextColor="White"
                             WidthRequest="300"
                             BackgroundColor="Black"
-                            HeightRequest="50"
-                            Clicked="SearchButton_Clicked"
-                            />
+                            HeightRequest="50"></Button>
+                            <!--Clicked="SearchButton_Clicked"-->
+                            
 
 
                     <HorizontalStackLayout

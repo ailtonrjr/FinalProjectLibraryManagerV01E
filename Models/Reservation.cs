@@ -8,12 +8,26 @@ namespace FinalProjectLibraryManagerV01E.Models
 {
     public class Reservation
     {
-        public int ReservationID { get; set; }
+        public string ReservationID { get; set; }
         public Book Book { get; set; }
         public Student Student { get; set; }
-        public DateTime ReservationData { get; set; }
-        public DateTime ExpirationData { get; set; }
+        public Instructor Instructor { get; set; }
+        public DateTime ReservsationDate { get; set; }
 
-        //decrease the copy of the book
+        public Reservation(string iD, Book book, Student student, DateTime reservsationDate)
+        {
+            ReservationID = iD;
+            this.Book = book;
+            this.Student = student;
+            ReservsationDate = reservsationDate;
+        }
+
+        public Reservation(string iD, Book book, Instructor instructor, DateTime reservsationDate)
+        {
+            ReservationID = iD;
+            this.Book = book;
+            this.Instructor = instructor;
+            ReservsationDate = reservsationDate;
+        }
     }
 }

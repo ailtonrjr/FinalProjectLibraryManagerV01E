@@ -10,22 +10,24 @@ namespace FinalProjectLibraryManagerV01E.Models
     {
         public string Name { get; set; }
         public string ID { get; set; }
-        public string Password { get; set; }
-        public bool HasBorrowed{ get; set; }
-        public List<Book> BorroewdBooks { get; set; }
+        string password;
+        public string Password { get { return password; } }
+        public List<Book> books { get; set; }
         public bool IsFined { get; set; }
-        public int TotalFines { get; set; }
+        public bool HasBorrwed { get; set; }
+        public int TotalFine { get; set; }
 
-        //Labriarian:Labrarian
-
-        public Student() { }
-
-        public Student(string name, string id, string password)
+        public Student(string Name, string id, string password)
         {
-            this.Name = name;
-            this.ID = id;
-            this.Password = password;
+            this.Name = Name;
+            ID = id;
+            this.password = password;
+            IsFined = false;
+            TotalFine = 0;
+            HasBorrwed = false;
+
         }
+
 
     }
 }
