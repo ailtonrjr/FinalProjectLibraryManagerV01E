@@ -10,6 +10,11 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
     {
         private List<Fine> fines = new List<Fine>();
 
+        //public static List<Fine> finesTest = new List<Fine>()
+        //{
+        //    new Fine{ID = "ABC5573", book = "Yellow", Student = "Mazanza Alberto", loan = "5575", IsActive = true, DaysOverdue = 3, Amount = 15}
+        //};
+
         public void AddFine(Fine fine)
         {
             fines.Add(fine);

@@ -16,6 +16,8 @@ namespace FinalProjectLibraryManagerV01E.Models
         public Loan loan { get; set; }
         public bool IsActive { get; set; }
         public int DaysOverdue { get; set; }
+
+
         public Fine(string iD, Book book, Student student, decimal amount, Loan loan, bool isActive, int daysOverdue)
         {
             ID = iD;
@@ -38,6 +40,7 @@ namespace FinalProjectLibraryManagerV01E.Models
             DaysOverdue = 1;
             Amount = CalculateFine(DaysOverdue);
         }
+
         public int CalculateFine(int DaysOverdue)
         {
             return 5 * DaysOverdue;
