@@ -14,17 +14,16 @@ namespace FinalProjectLibraryManagerV01E.Models
         public Instructor Instructor { get; set; }
         public DateTime ReservsationDate { get; set; }
 
-        public Reservation(string iD, Book book, Student student, DateTime reservsationDate)
+        public Reservation(Book book, Student student, DateTime reservsationDate)
         {
-            ReservationID = iD;
             this.Book = book;
             this.Student = student;
             ReservsationDate = reservsationDate;
         }
 
-        public Reservation(string iD, Book book, Instructor instructor, DateTime reservsationDate)
+        public Reservation(Book book, Instructor instructor, DateTime reservsationDate)
         {
-            ReservationID = iD;
+            
             this.Book = book;
             this.Instructor = instructor;
             ReservsationDate = reservsationDate;

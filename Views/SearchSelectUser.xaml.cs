@@ -41,21 +41,21 @@ public partial class SearchSelectUser : ContentPage
         string insertedAuthorUser = searchForTitleUser.Text;
 
 
-        List<Book> foundBooksUser = BookManager.SearchBooksCombined(insertedTitleUser, insertedAuthorUser);
+        //List<Book> foundBooksUser = BookManager.SearchBooksCombined(insertedTitleUser, insertedAuthorUser);
 
-        foreach (Book book in foundBooksUser)
-        {
-            if (book != null)
-            {
-                searchPickerUser.Items.Add(book.ToDisplay());
-            }
+        //foreach (Book book in foundBooksUser)
+        //{
+        //    if (book != null)
+        //    {
+        //        searchPickerUser.Items.Add(book.ToDisplay());
+        //    }
 
-            else
-            {
-                searchPickerUser.Items.Add("No books found");
-            }
+        //    else
+        //    {
+        //        searchPickerUser.Items.Add("No books found");
+        //    }
 
-        }
+        //}
 
     }
 }

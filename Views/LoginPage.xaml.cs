@@ -12,6 +12,17 @@ public partial class LoginPage : ContentPage
 
     private void loginBtn_Clicked_1(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        
+        if(userRadioButton.IsChecked == true)
+        {
+            Shell.Current.GoToAsync(nameof(HomepageCustomer));
+        }
+        
+        else if (adminRadioButton.IsChecked == true) 
+        
+        {
+            Shell.Current.GoToAsync("..");
+        }
+        
     }
 }

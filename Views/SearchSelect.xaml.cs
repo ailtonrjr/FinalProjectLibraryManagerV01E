@@ -12,6 +12,9 @@ public partial class SearchSelect : ContentPage
 
     }
 
+    List<Book> foundBooks = new List<Book>();
+    int selectedIndex;
+
     private void homeSearchBtn_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("..");
@@ -63,45 +66,58 @@ public partial class SearchSelect : ContentPage
 
     }
 
+    
+
+    private void SearchButton_Clicked(object sender, EventArgs e)
+    {
+        string insertedTitle = TitleEntry.Text;  // Corrected variable names
+        string insertedAuthor = authorEntry.Text; // Corrected variable names
+
+        if (titleSearchBtn.IsChecked == true)
+        {
+            foundBooks = BookManager.SearchBooksByTitle(title: insertedTitle);
+        }
+        else if (authorSearchBtn.IsChecked == true)  // Changed to else if to avoid overwriting foundBooks
+        {
+            foundBooks = BookManager.SearchBooksByAuthor(author: insertedAuthor);
+        }
+
+        searchPicker.Items.Clear();  // Clear previous items
+
+        if (foundBooks.Any())  // Check if there are any books found
+        {
+            foreach (Book book in foundBooks)
+            {
+                searchPicker.Items.Add(book.ToDisplay());
+            }
+        }
+        else
+        {
+            searchPicker.Items.Add("Book not found");  // Handle no books found
+        }
+    }
+
     private void searchPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
+        var picker = (Picker)sender;
+        selectedIndex = picker.SelectedIndex;
+
+        if (selectedIndex < 0) { }
+
+        else
+        {
+            titleFoundEntry.Text = foundBooks[selectedIndex].Title;
+            AuthorFoundEntry.Text = foundBooks[selectedIndex].Author;
+            //isAvailableFoundEntry.Text = foundBooks[selectedIndex].isAvailable.ToString();
+
+        }
 
     }
 
-    //private void SearchButton_Clicked(object sender, EventArgs e)
-    //{
-    //    string insertedTitle = searchForAuthor.Text;
-    //    string insertedAuthor = searchForTitle.Text;
+    private void finalReserveBtn_Clicked(object sender, EventArgs e)
+    {
 
-    //    List<Book> foundBooks = new List<Book>();
-
-    //    if (title_clicked)
-    //    {
-    //        foundBooks = BookManager.SearchBooksByTitle(title : insertedTitle);
-    //    }
-
-    //    if (author_clicked)
-    //    {
-    //        foundBooks = BookManager.SearchBooksByAuthor(author : insertedAuthor);
-    //    }
-
-    //    foreach (Book book in foundBooks)
-    //    {
-    //        if (book != null)
-    //        {
-    //            //mostrar no picker
-    //            searchPicker.Items.Add(book.ToDisplay());
-    //        }
-
-    //        else
-    //        {
-    //            //mostrar no picker
-    //            searchPicker.Items.Add(book.ToDisplay());
-    //        }
-
-    //    }
-
-    //}
+    }
     //=======
     //    private void OnSearchClicked(object sender, EventArgs e)
     //    {        

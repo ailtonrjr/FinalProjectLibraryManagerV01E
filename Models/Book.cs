@@ -14,6 +14,8 @@ namespace FinalProjectLibraryManagerV01E.Models
         public int Rating { get; set; }
         public int Copies { get; set; }
         public string Location { get; set; }
+
+        //public bool isAvailable {get { return Book != null && Book.Copies > 0; }
         public string ISBN { get; set; }
 
         public Book() { }
@@ -23,6 +25,23 @@ namespace FinalProjectLibraryManagerV01E.Models
             this.Title = title;
             this.Author = author;
         }
+
+        //public bool IsAvailable(Book book)
+        //{
+        //    bool isAvailable;
+
+        //    if (book.Copies < 1)
+        //    {
+        //        isAvailable = false;
+        //    }
+
+        //    else
+        //    {
+        //        isAvailable = true;
+        //    }
+
+        //    this.isAvailable = isAvailable;
+        //}
 
         public string ToDisplay()
         {

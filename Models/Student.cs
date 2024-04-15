@@ -17,11 +17,11 @@ namespace FinalProjectLibraryManagerV01E.Models
         public bool HasBorrwed { get; set; }
         public int TotalFine { get; set; }
 
-        public Student(string Name, string id, string password)
+        public Student(string Name, string id)
         {
             this.Name = Name;
             ID = id;
-            this.password = password;
+            //this.password = password;
             IsFined = false;
             TotalFine = 0;
             HasBorrwed = false;
