@@ -197,7 +197,7 @@
 
                         <SearchBar 
                             x:Name="authorEntry"
-                            Placeholder="Enter Book Title"
+                            Placeholder="Enter Book Author"
                             BackgroundColor ="LightGray"
                             WidthRequest="400"
                             HorizontalOptions="Center"

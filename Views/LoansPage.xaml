@@ -3,20 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProjectLibraryManagerV01E.Views.LoansPage"
              Title="Loans | Admin">
-    <!--<StackLayout>
-        <ListView x:Name="LoanHistoryListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Title}" />
-                            <Label Text="{Binding DueDate}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>-->
+    
 
     <ScrollView>
         <Grid  
@@ -129,23 +116,25 @@
                     BackgroundColor="#212121"
                 ></Button>
 
-                <StackLayout>
-                    <ListView x:Name="LoanHistoryListView">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Padding="10">
-                                        <Label Text="{Binding Title}" />
-                                        <Label Text="{Binding DueDate}" />
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-
 
             </VerticalStackLayout>
+
+            <!--<StackLayout>
+                 <ListView x:Name="LoanHistoryListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Title}" />
+                                    <Label Text="{Binding DueDate}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>-->
+
+                
 
 
             <Label 
@@ -172,7 +161,49 @@
                 ></Label>
 
 
+
+
+
+
+            <VerticalStackLayout Grid.Column="1" Grid.Row="2" Spacing="10" Margin="20,20, 20, 20" BackgroundColor="LightGray">
+                <ListView x:Name="LoanHistoryListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label TextColor="Black" Text="{Binding Title}" />
+                                    <Label TextColor="Black" Text="{Binding DueDate}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+
+            
+            
+            
+            <!--<StackLayout>
+                 <ListView x:Name="LoanHistoryListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Title}" />
+                                    <Label Text="{Binding DueDate}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>-->
+
+
         </Grid>
+            
+            
+            
+            
     </ScrollView>
 
 </ContentPage>

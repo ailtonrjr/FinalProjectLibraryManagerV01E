@@ -6,7 +6,7 @@ namespace FinalProjectLibraryManagerV01E.Views;
 
 public partial class LoansPage : ContentPage
 {
-    public ObservableCollection<Loan> LoansHistory { get; set; }
+    public ObservableCollection<Loan> LoansHistory { get; set; } = new ObservableCollection<Loan>();
 
 
     public class Loan
@@ -18,18 +18,13 @@ public partial class LoansPage : ContentPage
 	{
 		InitializeComponent();
 
-        var LoansHistory = new ObservableCollection<Loan>();
-
-
         LoadLoanHistory();
-
 
         LoanHistoryListView.ItemsSource = LoansHistory;
     }
 
     private void LoadLoanHistory()
     {
-
         LoansHistory.Add(new Loan { Title = "Book 1", DueDate = DateTime.Today.AddDays(7) });
         LoansHistory.Add(new Loan { Title = "Book 2", DueDate = DateTime.Today.AddDays(14) });
         LoansHistory.Add(new Loan { Title = "Book 3", DueDate = DateTime.Today.AddDays(21) });
