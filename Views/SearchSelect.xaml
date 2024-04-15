@@ -165,11 +165,7 @@
 
                     </HorizontalStackLayout>
 
-                    <!--<Label Text="Search and select a book"
-                       FontSize="Header"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>-->
-
+                    
                     <HorizontalStackLayout
                         Padding="30,5,5,0"
                         Spacing="32"
@@ -197,9 +193,10 @@
 
                         <SearchBar 
                             x:Name="authorEntry"
-                            Placeholder="Enter Book Title"
+                            Placeholder="Enter Book Author"
                             BackgroundColor ="LightGray"
                             WidthRequest="400"
+                            TextColor="Black"
                             HorizontalOptions="Center"
                             FontSize="16"
                             FontFamily="San Francisco"
@@ -240,7 +237,8 @@
                     <HorizontalStackLayout
                         Padding="30"
                         HorizontalOptions="Center"
-                        Margin="0,-70">
+                        Margin="0,-70"
+                        >
 
                             <Border
                             StrokeLineCap="Round"
@@ -251,6 +249,7 @@
                                 HeightRequest="20"
                                 WidthRequest="1000"
                                 TextColor="Black"
+                                FontFamily="San Francisco"
                                 SelectedIndexChanged="searchPicker_SelectedIndexChanged">
 
 
@@ -283,6 +282,7 @@
                             Text="Title"
                             VerticalOptions="Center"
                             TextColor="Black"
+                            FontFamily="San Francisco"
                             FontAttributes="Bold"></Label>
                         
                         <Border>
@@ -297,6 +297,7 @@
                             Text="Author"
                             VerticalOptions="Center"
                             TextColor="Black"
+                            FontFamily="San Francisco"
                             FontAttributes="Bold"></Label>
 
                         <Border >
@@ -304,13 +305,15 @@
                                 x:Name="AuthorFoundEntry"
                                 Text="{Binding Author}"
                                 WidthRequest="200"
-                                TextColor="Black"></Entry>
+                                TextColor="Black"
+                                FontFamily="San Francisco"></Entry>
                         </Border>
 
                         <Label
                             Text="Is the book available?"
                             VerticalOptions="Center"
                             TextColor="Black"
+                            FontFamily="San Francisco"
                             FontAttributes="Bold"></Label>
 
                         <Border >
@@ -318,6 +321,7 @@
                                 x:Name="isAvailableFoundEntry"
                                 Text="{Binding isAvailable}"
                                 WidthRequest="200"
+                                FontFamily="San Francisco"
                                 TextColor="Black"></Entry>
                         </Border>
 
@@ -328,7 +332,9 @@
                         <Label
                             Text="Name: "
                             FontSize="20"
+                            FontAttributes="Bold"
                             TextColor="Black"
+                            FontFamily="San Francisco"
                             VerticalOptions="Center"
                             
                         ></Label>
@@ -338,6 +344,7 @@
                             x:Name="nameReservationName"
                             WidthRequest="500"
                             Placeholder="Insert your name to proceed to the reservation"
+                            FontFamily="San Francisco"
                             TextColor="Black"
                             ></Entry>
 
@@ -348,6 +355,7 @@
                         <Button
                             x:Name="finalReserveBtn"
                             BackgroundColor="Black"
+                            FontFamily="San Francisco"
                             TextColor="White"
                             FontSize="24"
                             FontAttributes="Bold"

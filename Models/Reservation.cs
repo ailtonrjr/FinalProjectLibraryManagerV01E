@@ -12,13 +12,15 @@ namespace FinalProjectLibraryManagerV01E.Models
         public Book Book { get; set; }
         public Student Student { get; set; }
         public Instructor Instructor { get; set; }
-        public DateTime ReservsationDate { get; set; }
+        public DateTime ReservationDate { get; set; }
+
+        public Reservation() { }
 
         public Reservation(Book book, Student student, DateTime reservsationDate)
         {
             this.Book = book;
             this.Student = student;
-            ReservsationDate = reservsationDate;
+            ReservationDate = reservsationDate;
         }
 
         public Reservation(Book book, Instructor instructor, DateTime reservsationDate)
@@ -26,7 +28,7 @@ namespace FinalProjectLibraryManagerV01E.Models
             
             this.Book = book;
             this.Instructor = instructor;
-            ReservsationDate = reservsationDate;
+            ReservationDate = reservsationDate;
         }
     }
 }

@@ -9,7 +9,7 @@ public partial class ActiveFinesPayments : ContentPage
 
     private void homeFinPayBtn_Clicked(object sender, EventArgs e)
     {
-		Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(HomepageLibrarian));
     }
 
     private void booksFinPayBtn_Clicked(object sender, EventArgs e)

@@ -37,7 +37,7 @@ public partial class LoansPage : ContentPage
 
     private void homeLoanBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(HomepageLibrarian));
     }
 
     private void booksLoanBtn_Clicked(object sender, EventArgs e)

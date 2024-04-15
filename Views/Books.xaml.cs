@@ -9,7 +9,7 @@ public partial class Books : ContentPage
 
     private void homeBooksBtn_Clicked_1(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(HomepageLibrarian));
     }
 
     private void StudentsBookBtn_Clicked(object sender, EventArgs e)

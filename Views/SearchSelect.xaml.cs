@@ -6,8 +6,8 @@ namespace FinalProjectLibraryManagerV01E.Views;
 
 public partial class SearchSelect : ContentPage
 {
-	public SearchSelect()
-	{
+    public SearchSelect()
+    {
         InitializeComponent();
 
     }
@@ -17,7 +17,7 @@ public partial class SearchSelect : ContentPage
 
     private void homeSearchBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(HomepageLibrarian));
     }
 
     private void booksSearchBtn_Clicked(object sender, EventArgs e)
@@ -66,7 +66,7 @@ public partial class SearchSelect : ContentPage
 
     }
 
-    
+
 
     private void SearchButton_Clicked(object sender, EventArgs e)
     {
@@ -114,8 +114,52 @@ public partial class SearchSelect : ContentPage
 
     }
 
-    private void finalReserveBtn_Clicked(object sender, EventArgs e)
+    private async void finalReserveBtn_Clicked(object sender, EventArgs e)
     {
+        string titleSelected = titleFoundEntry.Text;
+        string authorSelected = AuthorFoundEntry.Text;
+        string nameUserSelected = nameReservationName.Text;
+        Book selectedBook = null;
+
+
+        List<Book> b1 = BookManager.SearchBooksByTitle(titleSelected);
+        if (b1.Any())
+        {  // Ensure there are books found before assigning
+            Book book = b1.First();  // Using the first found book
+            selectedBook = new Book { Title = book.Title, Author = book.Author };
+        }
+
+        ReservationManager reservationManager = new ReservationManager();
+        Student selectedStudent = UserManager.IstheUserRegistered(nameUserSelected);
+
+        if (selectedBook != null && selectedStudent != null)
+        {
+            var reservation = new Reservation
+            {
+                Book = selectedBook,
+                Student = selectedStudent,
+                ReservationDate = DateTime.Today
+            };
+
+            reservationManager.AddReservation(reservation);
+
+            await DisplayAlert("Reservation", "Your reservation has been created!", "OK");
+
+            titleSearchBtn.IsChecked = false;
+            authorSearchBtn.IsChecked = false;
+            TitleEntry.Text = "";
+            authorEntry.Text = "";
+            searchPicker.Items.Clear();
+            titleFoundEntry.Text = "";
+            AuthorFoundEntry.Text = "";
+            nameReservationName.Text = "";
+            foundBooks.Clear();
+
+        }
+        else
+        {
+            // Throw an exception
+        }
 
     }
     //=======

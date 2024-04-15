@@ -10,11 +10,18 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
     {
         public static List<Student> students = new List<Student>()
         {
-            
+            new Student {Name="Lucas Munhoz", ID=1},
+            new Student {Name="Angelo Pires", ID=2},
+            new Student {Name="Arya Perbhaker", ID=3},
+            new Student {Name="Ailton Junior", ID=4},
+            new Student {Name="Mazanza Alberto", ID=5},
 
-        
-        
         };
+
+        public static Student IstheUserRegistered(string name)
+        {
+            return students.FirstOrDefault(student => student.Name == name);
+        }
 
     }
 }

@@ -92,7 +92,6 @@
 
             </VerticalStackLayout>
 
-
             <ScrollView Grid.Row="2" Grid.Column="1">
 
                 <VerticalStackLayout
@@ -103,7 +102,11 @@
                         Padding="30,5,5,0"
                         Spacing="32"
                         HorizontalOptions="Center"
-                        VerticalOptions="Center">
+                        VerticalOptions="Center">   
+
+                        <RadioButton
+                              x:Name="titleSearchBtnUser"
+                              GroupName="SearchType"/>
 
 
                         <Label
@@ -118,7 +121,6 @@
                             HorizontalOptions="Center"/>
 
 
-
                         <SearchBar
                             x:Name="TitleEntryUser"
                             Placeholder="Enter Book Title"
@@ -126,18 +128,21 @@
                             WidthRequest="400"
                             HorizontalOptions="Center"
                             FontSize="16"
+                            TextColor="Black"
                             FontFamily="San Francisco"
                             Margin="35,0,0,10"/>
 
                     </HorizontalStackLayout>
 
-
                     <HorizontalStackLayout
                         Padding="30,5,5,0"
                         Spacing="32"
                         HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        >
+                        VerticalOptions="Center">
+
+                        <RadioButton
+                            x:Name="authorSearchBtnUser"
+                            GroupName="SearchType"/>
 
                         <Label
                             x:Name="searchForAuthorUser"
@@ -149,43 +154,13 @@
                             FontAttributes="Bold"
                             Padding="10"
                             HorizontalOptions="Start"/>
-                            
 
-                        <Entry 
+                        <SearchBar 
                             x:Name="authorEntryUser"
-                            Placeholder="Enter Book Title"
+                            Placeholder="Enter Book Author"
                             BackgroundColor ="LightGray"
                             WidthRequest="400"
-                            HorizontalOptions="Center"
-                            FontSize="16"
-                            FontFamily="San Francisco"
-                            Margin="0,0,0,10"/>
-
-                    </HorizontalStackLayout>
-
-                    <HorizontalStackLayout
-                        Padding="30,5,5,0"
-                        Spacing="30"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        >
-
-                        <Label
-                            x:Name="searchForCategoryUser"
-                            Text="CATEGORY:  "
-                            VerticalOptions="Center"
-                            FontSize="16"
-                            FontFamily="San Francisco"
                             TextColor="Black"
-                            FontAttributes="Bold"
-                            Padding="0,10,10,20"
-                            HorizontalOptions="Start"/>
-
-                        <Entry 
-                            x:Name="categoryEntryUser"
-                            Placeholder="Enter Book Title"
-                            BackgroundColor ="LightGray"
-                            WidthRequest="400"
                             HorizontalOptions="Center"
                             FontSize="16"
                             FontFamily="San Francisco"
@@ -193,25 +168,25 @@
 
                     </HorizontalStackLayout>
 
-                    <Button x:Name="SearchButtonUser"
-                            Margin="55,50,0,10"                            
-                            Text="SEARCH"
-                            FontFamily="San Francisco"
-                            FontAttributes="Bold"
-                            FontSize="20"
-                            TextColor="White"
-                            WidthRequest="300"
-                            BackgroundColor="Black"
-                            HeightRequest="50"
-                            Clicked="SearchButtonUser_Clicked"/>
-
+                            <Button 
+                                x:Name="SearchButtonUser"
+                                Margin="55,50,0,10"                            
+                                Text="SEARCH"
+                                FontFamily="San Francisco"
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                TextColor="White"
+                                WidthRequest="300"
+                                BackgroundColor="Black"
+                                HeightRequest="50"
+                                Clicked="SearchButtonUser_Clicked"></Button>
 
                     <HorizontalStackLayout
                         Padding="30"
                         HorizontalOptions="Center">
 
                         <Label
-                            x:Name="searchResult"
+                            x:Name="searchResultUser"
                             Text="Results for your search:"
                             VerticalOptions="Center"
                             FontSize="20"
@@ -222,9 +197,10 @@
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout
-                        Padding="30"
-                        HorizontalOptions="Center"
-                        Margin="0,-70">
+            Padding="30"
+            HorizontalOptions="Center"
+            Margin="0,-70"
+            >
 
                         <Border
                             StrokeLineCap="Round"
@@ -235,24 +211,123 @@
                                 HeightRequest="20"
                                 WidthRequest="1000"
                                 TextColor="Black"
+                                FontFamily="San Francisco"
                                 SelectedIndexChanged="searchPickerUser_SelectedIndexChanged">
-
-
-                                <!--SelectedIndexChanged="MyPicker_SelectedIndexChanged"-->
                             </Picker>
 
                         </Border>
 
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout
+                        Margin="30,10,30,0"
+                        Padding="30"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            x:Name="makeAReservationUser"
+                            Text="MAKE A RESERVATION"
+                            VerticalOptions="Center"
+                            FontSize="Large"
+                            FontFamily="San Francisco"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Start"></Label>
+                                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="20" Padding="30,10" Margin="30,0,30,10" HorizontalOptions="Center">
+
+                        <Label
+                            Text="Title"
+                            VerticalOptions="Center"
+                            TextColor="Black"
+                            FontFamily="San Francisco"
+                            FontAttributes="Bold"></Label>
+
+                        <Border>
+                            <Entry
+                                x:Name="titleFoundEntryUser"
+                                Text="{Binding Title}"
+                                WidthRequest="200"
+                                TextColor="Black"></Entry>
+                        </Border>
+
+                        <Label
+                            Text="Author"
+                            VerticalOptions="Center"
+                            TextColor="Black"
+                            FontFamily="San Francisco"
+                            FontAttributes="Bold"></Label>
+                        
+                        <Border>
+                            <Entry
+                                x:Name="AuthorFoundEntryUser"
+                                Text="{Binding Author}"
+                                WidthRequest="200"
+                                TextColor="Black"
+                                FontFamily="San Francisco"></Entry> 
+                        </Border>
+
+                        <Label
+                            Text="Is the book available?"
+                            VerticalOptions="Center"
+                            TextColor="Black"
+                            FontFamily="San Francisco"
+                            FontAttributes="Bold"></Label>
+
+                        <Border >
+                            <Entry
+                                x:Name="isAvailableFoundEntryUser"
+                                Text="{Binding isAvailable}"
+                                WidthRequest="200"
+                                FontFamily="San Francisco"
+                                TextColor="Black"></Entry>
+                        </Border>
 
                     </HorizontalStackLayout>
 
+                    <HorizontalStackLayout Padding="20,0" Spacing="30" Margin="20,0" HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <Label
+                            Text="Name: "
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            FontFamily="San Francisco"
+                            VerticalOptions="Center"></Label>
+
+                        <Border>
+                            <Entry
+                                x:Name="nameReservationNameUser"
+                                WidthRequest="500"
+                                Placeholder="Insert your name to proceed to the reservation"
+                                FontFamily="San Francisco"
+                                TextColor="Black"
+                            ></Entry>
+
+                        </Border>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Padding="20,0" Spacing="30" Margin="20,0" HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <Button
+                            x:Name="finalReserveBtn"
+                            BackgroundColor="Black"
+                            FontFamily="San Francisco"
+                            TextColor="White"
+                            FontSize="24"
+                            FontAttributes="Bold"
+                            Text="RESERVE"
+                            Clicked="finalReserveBtnUser_Clicked"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Padding="10">
+
+                        </Button>
+
+                    </HorizontalStackLayout>
 
                 </VerticalStackLayout>
-
             </ScrollView>
-
-
-
 
             <Label 
             Padding="10" 

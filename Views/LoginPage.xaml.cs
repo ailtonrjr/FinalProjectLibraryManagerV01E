@@ -21,7 +21,7 @@ public partial class LoginPage : ContentPage
         else if (adminRadioButton.IsChecked == true) 
         
         {
-            Shell.Current.GoToAsync("..");
+            Shell.Current.GoToAsync(nameof(HomepageLibrarian)); ;
         }
         
     }

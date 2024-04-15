@@ -9,7 +9,7 @@ namespace FinalProjectLibraryManagerV01E.Models
     public class Student
     {
         public string Name { get; set; }
-        public string ID { get; set; }
+        public int ID { get; set; }
         string password;
         public string Password { get { return password; } }
         public List<Book> books { get; set; }
@@ -17,7 +17,9 @@ namespace FinalProjectLibraryManagerV01E.Models
         public bool HasBorrwed { get; set; }
         public int TotalFine { get; set; }
 
-        public Student(string Name, string id)
+        public Student() { }
+
+        public Student(string Name, int id)
         {
             this.Name = Name;
             ID = id;

@@ -45,7 +45,7 @@ namespace FinalProjectLibraryManagerV01E.Models
 
         public string ToDisplay()
         {
-            return $" {BookID} , {Title}, {Author}";
+            return $" BookID: {BookID} , Title: {Title}, Author: {Author}";
         }
 
     }    
