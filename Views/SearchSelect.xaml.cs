@@ -32,7 +32,7 @@ public partial class SearchSelect : ContentPage
 
     private void reservationsSearchBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(Reservation));
+        Shell.Current.GoToAsync(nameof(ReservationPage));
     }
 
     private void loansSearchBtn_Clicked(object sender, EventArgs e)

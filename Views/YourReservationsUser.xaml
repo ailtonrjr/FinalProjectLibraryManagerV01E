@@ -59,7 +59,7 @@
 
                 <Button x:Name="LoansUserBtn"
                      Text="Your Loans"
-                        Clicked="LoansUserBtn_Clicked"
+                     Clicked="LoansUserBtn_Clicked"
                      TextTransform="Uppercase"
                      FontSize="16"
                      FontAttributes="Bold"
