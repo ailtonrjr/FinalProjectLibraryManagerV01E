@@ -122,6 +122,55 @@
 
             </VerticalStackLayout>
 
+            <HorizontalStackLayout Margin="30" Padding="10" Spacing="10" Grid.Column="1" Grid.Row="3">
+
+                <VerticalStackLayout Spacing="80">
+                    <Label Text="Space to show up the books repository"
+                       TextColor="Black"></Label>
+
+                    <!--<HorizontalStackLayout>
+
+                            <Border>
+
+                                <Label
+                                    Text="Title"
+                                    FontSize="18"
+                                    TextColor="Black"
+                                    ></Label>
+
+                                <Entry 
+                                    x:Name="addingTitleEntry"
+                                    Placeholder="Insert the title of the new book"
+                                    WidthRequest="200"
+                                    TextColor="Black"></Entry>
+
+                            </Border>
+
+                        
+                    </HorizontalStackLayout>-->
+                                        
+                    <HorizontalStackLayout Spacing="50" >
+                            <Button
+                                x:Name="addBookBtn"
+                                BackgroundColor="Black"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                FontSize="22"
+                                Text="Add a new book"
+                                Clicked="addBookBtn_Clicked"></Button>
+
+                            <Button
+                                x:Name="deleteBookBtn"
+                                BackgroundColor="Black"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                FontSize="22"
+                                Text="Delete book"
+                                Clicked="deleteBookBtn_Clicked"></Button>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
 
             <Label 
             Padding="10" 

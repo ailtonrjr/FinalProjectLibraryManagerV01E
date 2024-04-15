@@ -1,3 +1,6 @@
+using FinalProjectLibraryManagerV01E.Models;
+using FinalProjectLibraryManagerV01E.Models.Managers;
+
 namespace FinalProjectLibraryManagerV01E.Views;
 
 public partial class Books : ContentPage
@@ -37,5 +40,13 @@ public partial class Books : ContentPage
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
     }
 
-    
+    //private void addBookBtn_Clicked(object sender, EventArgs e)
+    //{
+    //    BookManager.AddBook(Book book);
+    //}
+
+    //private void deleteBookBtn_Clicked(object sender, EventArgs e)
+    //{
+    //    BookManager.DeleteBookd(Book book);
+    //}
 }
