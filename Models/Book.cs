@@ -20,10 +20,14 @@ namespace FinalProjectLibraryManagerV01E.Models
 
         public Book() { }
 
-        public Book(string title, string author)
+        public Book(string title, string author,string Isbn,int copies,int rating,string location)
         {
+            this.ISBN = ISBN;
             this.Title = title;
             this.Author = author;
+            this.Rating = rating;
+            this.Location = location;
+            this.Copies= copies;
         }
 
         //public bool IsAvailable(Book book)

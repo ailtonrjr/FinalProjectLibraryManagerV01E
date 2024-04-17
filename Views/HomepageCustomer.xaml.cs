@@ -10,6 +10,7 @@ namespace FinalProjectLibraryManagerV01E.Views;
 		public HomepageCustomer()
 		{
 			InitializeComponent();
+            BindName();
 		}
 
     private void HomeUserBtn_Clicked(object sender, EventArgs e)
@@ -35,5 +36,9 @@ namespace FinalProjectLibraryManagerV01E.Views;
     private void SearchUserBtn_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(SearchSelectUser));
+    }
+    public void BindName()
+    {
+        Welcome_entry.Text = $" Hello! {LoginPage.CurrentUser.Name}";
     }
 }

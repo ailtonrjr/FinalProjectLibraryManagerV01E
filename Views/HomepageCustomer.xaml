@@ -104,11 +104,12 @@
                 ></Label>
 
             <Label 
+                x:Name="Welcome_entry"
                 Padding="10,0,0,0" 
                 Margin="30,0,0,0" 
                 Grid.Row="1" 
                 Grid.Column="1" 
-                Text="Welcome, User!" 
+                Text="{Binding}" 
                 TextColor="Black" 
                 FontSize="Small"
                 FontFamily="San Francisco"

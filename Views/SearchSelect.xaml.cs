@@ -138,7 +138,7 @@ public partial class SearchSelect : ContentPage
             {
                 Book = selectedBook,
                 Student = selectedStudent,
-                ReservationDate = DateTime.Today
+                ReservationDueDate = DateTime.Today
             };
 
             reservationManager.AddReservation(reservation);

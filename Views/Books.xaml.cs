@@ -40,6 +40,16 @@ public partial class Books : ContentPage
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
     }
 
+    private void addBookBtn_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void deleteBookBtn_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
     //private void addBookBtn_Clicked(object sender, EventArgs e)
     //{
     //    BookManager.AddBook(Book book);

@@ -105,6 +105,34 @@
              FontSize="Small"
              FontFamily="San Francisco"
          ></Label>
+            <ListView BackgroundColor="Black" x:Name="ReservationList" Grid.Row="2" Grid.Column="1"  Margin="30,0,0,0"></ListView>
+
+                
+                <!--<Grid Grid.Row="2" Grid.Column="1"  Margin="30,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="Reservation1" Grid.Row="0" Text="{Binding Reservation1}" TextColor="Black"></Label>
+                <Label Grid.Row="1" Text="{Binding Reservation2}"></Label>
+                <Label Grid.Row="2" Text="{Binding Reservation3}"></Label>
+                <Label Grid.Row="3" Text="{Binding Reservation4}"></Label>
+                <Label Grid.Row="4" Text="{Binding Reservation5}"></Label>
+                <Label Grid.Row="5" Text="{Binding Reservation6}"></Label>
+                <Label Grid.Row="6" Text="{Binding Reservation7}"></Label>
+                <Label Grid.Row="7" Text="{Binding Reservation8}"></Label>
+                <Label Grid.Row="8" Text="{Binding Reservation1}"></Label>
+                <Label Grid.Row="9" Text="{Binding Reservation9}"></Label>
+                <Label Grid.Row="10" Text="{Binding Reservation10}"></Label>
+            </Grid>-->
 
         </Grid>
     </ScrollView>

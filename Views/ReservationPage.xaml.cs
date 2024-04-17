@@ -1,16 +1,23 @@
+using FinalProjectLibraryManagerV01E.Models;
+
 namespace FinalProjectLibraryManagerV01E.Views;
 
 public partial class ReservationPage : ContentPage
 {
-	public ReservationPage()
-	{
-		InitializeComponent();
-	}
+    
+    
+
+
+    public ReservationPage()
+    {
+        InitializeComponent();
+    }
 
     private void homeReserBtn_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(HomepageLibrarian));
     }
+
 
     private void homeReserBtn_Clicked_1(object sender, EventArgs e)
     {
@@ -41,4 +48,9 @@ public partial class ReservationPage : ContentPage
     {
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
     }
+    
+
 }
+     
+
+

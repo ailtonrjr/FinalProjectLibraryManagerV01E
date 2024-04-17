@@ -28,6 +28,7 @@
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
                            FontFamily="San Francisco"
+                           Text="{Binding UserId}"
                     ></Entry>
                 </HorizontalStackLayout>
 
@@ -41,6 +42,7 @@
                        WidthRequest="300"
                        HorizontalOptions="Center"
                        FontFamily="San Francisco"
+                       Text="{Binding Password}"
                 ></Entry>
                 </HorizontalStackLayout>
 

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.VisualBasic;
 using MySqlConnector;
 
 namespace FinalProjectLibraryManagerV01E.Models.Managers
@@ -85,7 +88,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                 Student student = (Student)obj;
                 using (var conn = new MySqlConnection(connectionString))
                 {
-                    string sql = "INSERT INTO fine(StudentID,Password,Name,HasBorrowed,Isfined) VALUES('" + student.ID + "','" + student.Password + "','" + student.Name + "','" + student.HasBorrwed + "','" + student.IsFined + "');";
+                    string sql = "INSERT INTO fine(StudentID,Password,Name,HasBorrowed,Isfined) VALUES('" + student.ID + "','" + student.Password + "','" + student.Name + "','" + student.HasBorrowed + "','" + student.IsFined + "');";
                     MySqlCommand command = new MySqlCommand(sql, conn);
                     conn.Open();
                     command.ExecuteNonQuery();
@@ -137,5 +140,139 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                 command.ExecuteNonQuery();
             }
         }
+
+        public IUser VerifyLogin(int ID,string password)
+        {
+            string name="";
+            bool Hasborrowed;
+            bool IsFined;
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                List<Book> books;
+                conn.Open();
+                string sql = "(Select Name,HasBorrowed,IsFined from student where StudentID='"+ID.ToString()+ "' AND Password='"+password+"');";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                if (reader == null)
+                {
+                     sql = "(Select InstructorName,HasBorrowed,IsFined from instructor where InstructorID='" + ID.ToString() + "' AND Password='" + password + "');";
+                     command = new MySqlCommand(sql, conn);
+                     reader=command.ExecuteReader();
+                    if (reader == null)
+                    {
+                        return null ;
+                    }
+                    else
+                    {
+                        while (reader.Read())
+                        {                            
+                            name = reader.GetString(0);
+                            Hasborrowed=reader.GetBoolean(1);
+                            IsFined = reader.GetBoolean(2);
+                        }
+                        Instructor instructor = new Instructor(name,ID,password);
+                        return instructor;
+
+                    }
+
+                }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        name = reader.GetString(0);
+                        Hasborrowed = reader.GetBoolean(1);
+                        IsFined = reader.GetBoolean(2);
+                    }
+                    Student student = new Student(name,ID,password);
+                    return student;
+                }
+                
+
+
+
+
+            }
+        }
+
+        public List<Reservation> GetReservationFromDatabse(IUser user)
+        {
+            string BookId;
+            DateTime DT;
+            bool IsActive;
+            string reservationID;
+            List<Reservation> reservations = new List<Reservation>();
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "(Select BookID,IsActive,DateDue,ReservationId from reservation where userID='" + user.ID+ "');";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    BookId=reader.GetString(0);
+                    
+                    if (reader.GetString(1) == "1")
+                    {
+                        IsActive = true;
+                    }
+                    else
+                    {
+                        IsActive = false;
+                    }
+                    DT= reader.GetDateTime(2);
+                    reservationID=reader.GetString(3);
+                    Book book = GetBookFromDatabase(BookId);
+                    Reservation reservation = new Reservation(book,user,DT,reservationID);
+                    reservations.Add(reservation);
+                }
+                return reservations;
+            }
+        }
+        public Book GetBookFromDatabase(string bookID)
+        {
+            string author="";
+            string Booktitle="";
+            int copies=0;
+            int Rating=0;
+            string location = "";
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "(Select Author,Title,Copies,Rating,Location from books where ISBN='" + bookID + "');";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    author = reader.GetString(0);
+                    Booktitle = reader.GetString(1);
+                    copies=reader.GetInt32(2);
+                    Rating = reader.GetInt32(3);
+                    location=reader.GetString(4);
+
+                }
+                Book book = new Book(author, Booktitle, bookID, copies, Rating, location);
+                return book;
+            }
+        }
+        //public Loan GetLoanFromDatabase(int LoanID)
+        //{
+        //    using (var conn = new MySqlConnection(connectionString))
+        //    {
+        //        conn.Open();
+        //        string sql = "(Select Use,BookTitle,Copies,Rating,Location from book where BookID='" + bookID + "');";
+        //        MySqlCommand command = new MySqlCommand(sql, conn);
+        //        var reader = command.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            author = reader.GetString(0);
+        //            Booktitle = reader.GetString(1);
+        //            copies = reader.GetInt32(2);
+        //            Rating = reader.GetInt32(3);
+        //            location = reader.GetString(4);
+
+        //        }
+        //    }
+        //}
     }
 }

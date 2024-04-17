@@ -21,5 +21,12 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                 reservations.Add(newReservation);
             }
         }
+        public List<Reservation> Getreservation(IUser user)
+        {
+            List<Reservation> list = new List<Reservation>();
+            DatabaseManager dbManager = new DatabaseManager();
+            list=dbManager.GetReservationFromDatabse(user);
+            return list;
+        }
     }
 }
