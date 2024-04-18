@@ -12,14 +12,16 @@ public partial class LoginPage : ContentPage
     private string password;
 	public LoginPage()
 	{
-		InitializeComponent();
-	}
+        
+        InitializeComponent();
+
+    }
 
     private void loginBtn_Clicked_1(object sender, EventArgs e)
     {
         VerifyUserIdAndPasswd();
-        
-        if(userRadioButton.IsChecked == true)
+
+        if (userRadioButton.IsChecked == true)
         {
             Shell.Current.GoToAsync(nameof(HomepageCustomer));
         }
@@ -27,9 +29,14 @@ public partial class LoginPage : ContentPage
         else if (adminRadioButton.IsChecked == true) 
         
         {
-            Shell.Current.GoToAsync(nameof(HomepageLibrarian)); ;
+            Shell.Current.GoToAsync(nameof(HomepageLibrarian));
         }
-        
+
+        entryUserID.Text = "";
+        entryPAssword.Text = "";
+        userRadioButton.IsChecked = false;
+        adminRadioButton.IsChecked = false;
+
     }
 
     public void VerifyUserIdAndPasswd()
@@ -38,14 +45,14 @@ public partial class LoginPage : ContentPage
         password = entryPAssword.Text;
         Models.Managers.DatabaseManager databaseManager = new Models.Managers.DatabaseManager();
         user = databaseManager.VerifyLogin(ID, password);
-        
-        user = new Student(user.Name,user.ID,user.Password);
+
+        user = new Student(user.Name, user.ID, user.Password);
         CurrentUser = user;
         //}
         //else
         //{
         //    user = new Instructor(user.Name,user.ID,user.Password);
-            
+
         //}
     }
     public IUser GetUser()

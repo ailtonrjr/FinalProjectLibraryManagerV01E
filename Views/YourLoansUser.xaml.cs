@@ -26,4 +26,9 @@ public partial class YourLoansUser : ContentPage
     {
         Shell.Current.GoToAsync(nameof(YourFinesPaymentsUser));
     }
+
+    private void LogoutLoansUserBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
 }

@@ -27,6 +27,7 @@
                            BackgroundColor="LightGray"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
+                           TextColor="Black"
                            FontFamily="San Francisco"
                            Text="{Binding UserId}"
                     ></Entry>
@@ -42,22 +43,27 @@
                        WidthRequest="300"
                        HorizontalOptions="Center"
                        FontFamily="San Francisco"
+                       TextColor="Black"
+                       IsPassword="True"
                        Text="{Binding Password}"
                 ></Entry>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout Spacing="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="60,0,0,0">
+                    
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <RadioButton x:Name="userRadioButton" GroupName="LoginType" />
-                        <!--Checked="UserRadioButton_Checked" />-->
-                        <Label Text="User" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" FontFamily="San Francisco"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <RadioButton x:Name="adminRadioButton" GroupName="LoginType" /><!--Checked="AdminRadioButton_Checked"-->
-                        <Label Text="Admin" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" FontFamily="San Francisco"/>
+                            <RadioButton x:Name="adminRadioButton" GroupName="LoginType" />
+                            <!--Checked="AdminRadioButton_Checked"-->
+                            <Label Text="Admin" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" FontFamily="San Francisco"/>
                     </StackLayout>
 
-                </HorizontalStackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                        <RadioButton x:Name="userRadioButton" GroupName="LoginType" />
+                        <!--Checked="UserRadioButton_Checked"-->
+                        <Label Text="User" FontSize="20" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" FontFamily="San Francisco"/>
+                    </StackLayout>
+
+                    </HorizontalStackLayout>
 
                 <HorizontalStackLayout HorizontalOptions="End">
                     <Button x:Name="loginBtn"

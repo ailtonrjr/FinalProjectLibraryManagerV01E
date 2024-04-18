@@ -20,11 +20,6 @@ public partial class HomepageLibrarian : ContentPage
 		Shell.Current.GoToAsync(nameof(HomepageCustomer));
     }
 
-    private void LoginAdmBtn_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(LoginPage));
-    }
-
     private void BooksAdmBtn_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(Books));
@@ -58,5 +53,10 @@ public partial class HomepageLibrarian : ContentPage
     private void Test_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(BooksPage));
+    }
+
+    private void LogoutHomeAdminBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
     }
 }

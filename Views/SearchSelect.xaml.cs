@@ -45,6 +45,11 @@ public partial class SearchSelect : ContentPage
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
     }
 
+    private void LogoutSearchAdminBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
+
     //private void bookSearchBar_TextChanged(object sender, TextChangedEventArgs e)
     //{
     //    var books = new ObservableCollection<Books>((IEnumerable<Books>)BookManager.SearchForBooks(bookSearchBar.Text));
@@ -75,11 +80,11 @@ public partial class SearchSelect : ContentPage
 
         if (titleSearchBtn.IsChecked == true)
         {
-            foundBooks = BookManager.SearchBooksByTitle(title: insertedTitle);
+            foundBooks = BookManager.SearchBooksByTitleFull(filterText : insertedTitle);
         }
         else if (authorSearchBtn.IsChecked == true)  // Changed to else if to avoid overwriting foundBooks
         {
-            foundBooks = BookManager.SearchBooksByAuthor(author: insertedAuthor);
+            foundBooks = BookManager.SearchBooksByAuthorFull(filterText: insertedAuthor);
         }
 
         searchPicker.Items.Clear();  // Clear previous items
@@ -122,9 +127,16 @@ public partial class SearchSelect : ContentPage
         Book selectedBook = null;
 
 
-        List<Book> b1 = BookManager.SearchBooksByTitle(titleSelected);
-        if (b1.Any())
+        List<Book> b1 = BookManager.SearchBooksByAuthorFull(filterText : authorSelected);
+        if (b1 != null)
         {  // Ensure there are books found before assigning
+            Book book = b1.First();  // Using the first found book
+            selectedBook = new Book { Title = book.Title, Author = book.Author };
+        }
+
+        else
+        {
+            b1 = BookManager.SearchBooksByTitleFull(filterText : titleSelected);
             Book book = b1.First();  // Using the first found book
             selectedBook = new Book { Title = book.Title, Author = book.Author };
         }
@@ -162,6 +174,8 @@ public partial class SearchSelect : ContentPage
         }
 
     }
+
+    
     //=======
     //    private void OnSearchClicked(object sender, EventArgs e)
     //    {        

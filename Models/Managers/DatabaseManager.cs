@@ -19,7 +19,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 Server = "127.0.0.1",
                 UserID = "root",
-                Password = "root",
+                Password = "Dudato1312*",
                 Database = "library"
             };
             connectionString = builder.ConnectionString;
@@ -150,7 +150,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 List<Book> books;
                 conn.Open();
-                string sql = "(Select Name,HasBorrowed,IsFined from student where StudentID='"+ID.ToString()+ "' AND Password='"+password+"');";
+                string sql = "(Select StudentName,HasBorrowed,IsFined from student where StudentID='"+ID.ToString()+ "' AND Password='"+password+"');";
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 var reader = command.ExecuteReader();
                 if (reader == null)

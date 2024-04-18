@@ -37,4 +37,9 @@ public partial class StudentsInstructors : ContentPage
     {
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
     }
+
+    private void LogoutUsersAdminBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
 }

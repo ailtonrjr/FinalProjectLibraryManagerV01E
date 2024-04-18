@@ -50,6 +50,12 @@ public partial class Books : ContentPage
 
     }
 
+    private void LogoutBooksAdminBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+
+    }
+
     //private void addBookBtn_Clicked(object sender, EventArgs e)
     //{
     //    BookManager.AddBook(Book book);

@@ -48,9 +48,12 @@ public partial class ReservationPage : ContentPage
     {
         Shell.Current.GoToAsync(nameof(ActiveFinesPayments));
     }
-    
 
+    private void LogoutReservationsAdminBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
 }
-     
+
 
 

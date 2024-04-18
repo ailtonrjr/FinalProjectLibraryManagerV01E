@@ -156,11 +156,11 @@
                         Grid.Row="2" 
                         x:Name="bkSearchBar"
                         Placeholder="Search for a book by the Title or the Author"
-                        TextChanged="bkSearchBar_TextChanged"
                         TextColor="Black"
                         FontFamily="San Francisco">
+                        <!--TextChanged="bkSearchBar_TextChanged"-->
 
-                    </SearchBar>
+                        </SearchBar>
 
                     </Border>
 

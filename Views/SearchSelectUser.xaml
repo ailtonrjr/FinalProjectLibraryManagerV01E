@@ -90,6 +90,20 @@
                     FontFamily="San Francisco"
                 ></Button>
 
+                <Button
+                    x:Name="LogoutSearchUserBtn"
+                    Text="LOGOUT"
+                    Clicked="LogoutSearchUserBtn_Clicked"
+                    Margin="0,200"
+                    TextTransform="Uppercase"
+                    FontSize="20"
+                    FontAttributes="Bold,Italic"
+                    TextColor="Gray"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+                ></Button>
+
+
             </VerticalStackLayout>
 
             <ScrollView Grid.Row="2" Grid.Column="1">

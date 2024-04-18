@@ -115,6 +115,20 @@
                     BackgroundColor="LightGray"
                 ></Button>
 
+                <Button
+                    x:Name="LogoutFinesAdminBtn"
+                    Text="LOGOUT"
+                    Clicked="LogoutFinesAdminBtn_Clicked"
+                    Margin="0,200"
+                    TextTransform="Uppercase"
+                    FontSize="20"
+                    FontAttributes="Bold,Italic"
+                    TextColor="Gray"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+                ></Button>
+
+
             </VerticalStackLayout>
 
             <Label 
@@ -139,6 +153,7 @@
                 FontSize="Small"
                 FontFamily="San Francisco"
             ></Label>
+            
 
         </Grid>
     </ScrollView>

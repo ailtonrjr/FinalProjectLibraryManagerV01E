@@ -46,16 +46,6 @@
                     FontFamily="San Francisco"
 ></Button>-->
 
-                <Button x:Name="LoginAdmBtn"
-                        Clicked="LoginAdmBtn_Clicked"
-                        Text="LOGIN"
-                        FontSize="16"
-                        TextColor="White"
-                        Background="#212121"
-                        FontAttributes="Bold"
-                        FontFamily="San Francisco"
-                ></Button>
-
                 <Button 
                     x:Name="BooksAdmBtn"
                     Text="BOOKS"
@@ -124,7 +114,21 @@
                         FontFamily="San Francisco"
                 ></Button>
 
-                
+                <Button
+                    x:Name="LogoutHomeAdminBtn"
+                    Text="LOGOUT"
+                    Clicked="LogoutHomeAdminBtn_Clicked"
+                    Margin="0,200"
+                    TextTransform="Uppercase"
+                    FontSize="20"
+                    FontAttributes="Bold,Italic"
+                    TextColor="Gray"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+                ></Button>
+
+
+
             </VerticalStackLayout>
             
             

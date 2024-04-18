@@ -41,11 +41,11 @@ public partial class SearchSelectUser : ContentPage
 
         if (titleSearchBtnUser.IsChecked == true)
         {
-            foundBooks = BookManager.SearchBooksByTitle(title: insertedTitle);
+            foundBooks = BookManager.SearchBooksByTitleFull(filterText : insertedTitle);
         }
         else if (authorSearchBtnUser.IsChecked == true)  // Changed to else if to avoid overwriting foundBooks
         {
-            foundBooks = BookManager.SearchBooksByAuthor(author: insertedAuthor);
+            foundBooks = BookManager.SearchBooksByAuthorFull(filterText : insertedAuthor);
         }
 
         searchPickerUser.Items.Clear();  // Clear previous items
@@ -88,9 +88,16 @@ public partial class SearchSelectUser : ContentPage
         Book selectedBook = null;
 
 
-        List<Book> b1 = BookManager.SearchBooksByTitle(titleSelected);
-        if (b1.Any())
+        List<Book> b1 = BookManager.SearchBooksByTitleFull(titleSelected);
+        if (b1 != null)
         {  // Ensure there are books found before assigning
+            Book book = b1.First();  // Using the first found book
+            selectedBook = new Book { Title = book.Title, Author = book.Author };
+        }
+
+        else
+        {
+            b1 = BookManager.SearchBooksByAuthorFull(authorSelected);
             Book book = b1.First();  // Using the first found book
             selectedBook = new Book { Title = book.Title, Author = book.Author };
         }
@@ -142,4 +149,10 @@ public partial class SearchSelectUser : ContentPage
         //}
 
     }
+
+    private void LogoutSearchUserBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
+
 }

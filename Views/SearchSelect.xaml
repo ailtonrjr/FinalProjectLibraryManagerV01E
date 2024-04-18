@@ -111,6 +111,21 @@
                     FontFamily="San Francisco"
                     BackgroundColor="#212121"
                 />
+
+                <Button
+                    x:Name="LogoutSearchAdminBtn"
+                    Text="LOGOUT"
+                    Clicked="LogoutSearchAdminBtn_Clicked"
+                    Margin="0,200"
+                    TextTransform="Uppercase"
+                    FontSize="20"
+                    FontAttributes="Bold,Italic"
+                    TextColor="Gray"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+                ></Button>
+
+
             </VerticalStackLayout>
 
             <!-- Input fields added from the remote version -->

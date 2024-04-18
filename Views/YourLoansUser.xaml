@@ -89,6 +89,20 @@
                     FontFamily="San Francisco"
                 ></Button>
 
+                <Button
+                    x:Name="LogoutLoansUserBtn"
+                    Text="LOGOUT"
+                    Clicked="LogoutLoansUserBtn_Clicked"
+                    Margin="0,200"
+                    TextTransform="Uppercase"
+                    FontSize="20"
+                    FontAttributes="Bold,Italic"
+                    TextColor="Gray"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+                ></Button>
+
+
             </VerticalStackLayout>
 
 

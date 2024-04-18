@@ -27,11 +27,11 @@ public partial class TestPage : ContentPage
 		Shell.Current.GoToAsync("..");
     }
 
-    private void bkSearchBar_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        var books = new ObservableCollection<Book>(BookManager.SearchForBooks(bkSearchBar.Text));
-        listOfBooks.ItemsSource = books;
-    }
+    //private void bkSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+    //{
+    //    var books = new ObservableCollection<Book>(BookManager.SearchForBooks(bkSearchBar.Text));
+    //    listOfBooks.ItemsSource = books;
+    //}
 
     private void listOfBooks_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {

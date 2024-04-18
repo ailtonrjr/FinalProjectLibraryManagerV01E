@@ -36,44 +36,30 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             return books.Find(book => book.Title == title);
         }
 
-        public static List<Book> SearchForBooks(string filterText)
+        public static List<Book> SearchBooksByTitleFull(string filterText)
         {
             var booksFound = books.Where(x => !string.IsNullOrWhiteSpace(x.Title) &&
-                            x.Title
-                       .StartsWith(filterText, StringComparison.OrdinalIgnoreCase))?.ToList();
+                            x.Title.StartsWith(filterText, StringComparison.OrdinalIgnoreCase))?.ToList();
 
             if (booksFound == null || booksFound.Count == 0)
             {
-                booksFound = books.Where(x => !string.IsNullOrWhiteSpace(x.Author) && x.Author
-                .StartsWith(filterText, StringComparison.OrdinalIgnoreCase))?.ToList();
+                return null;
             }
 
-            if (booksFound == null || booksFound.Count == 0)
-            {
-                booksFound = books.Where(x => !string.IsNullOrWhiteSpace(x.ISBN) && x.ISBN
-                .StartsWith(filterText, StringComparison.OrdinalIgnoreCase))?.ToList();
-            }
-
-            else
-            {
-                return booksFound;
-            }
             return booksFound;
         }
 
-        public static List<Book>SearchBooksByTitle(string title)
+        public static List<Book>SearchBooksByAuthorFull(string filterText)
         {
-            //insert a RadioButton on the page the differentiate the methods invoked
-            List<Book> foundBooks = new List<Book>();
-            foreach (var book in books)
+            var booksFound = books.Where(x => !string.IsNullOrWhiteSpace(x.Author) &&
+                            x.Author.StartsWith(filterText, StringComparison.OrdinalIgnoreCase))?.ToList();
+
+            if (booksFound == null || booksFound.Count == 0)
             {
-                if (book.Title == title)
-                {
-                    foundBooks.Add(book);
-                }
+                return null;
             }
 
-            return foundBooks;
+            return booksFound;
         }
 
         public static List<Book> SearchBooksByAuthor(string author)

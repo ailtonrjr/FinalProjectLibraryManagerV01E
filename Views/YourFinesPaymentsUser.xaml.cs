@@ -55,4 +55,9 @@ public partial class YourFinesPaymentsUser : ContentPage
         // For now, let's just display an alert
         await DisplayAlert("Payment", $"Payment for Fine ID: {iD}", "OK");
     }
+
+    private void LogoutFinesUserBtn_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
+    }
 }

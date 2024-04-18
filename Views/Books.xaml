@@ -118,7 +118,21 @@
                     TextColor="White"
                     Background="#212121"
                     FontFamily="San Francisco"
-            ></Button>
+                ></Button>
+
+                <Button
+                    x:Name="LogoutBooksAdminBtn"
+                    Text="LOGOUT"
+                    Clicked="LogoutBooksAdminBtn_Clicked"
+                    Margin="0,200"
+                    TextTransform="Uppercase"
+                    FontSize="20"
+                    FontAttributes="Bold,Italic"
+                    TextColor="Gray"
+                    Background="#212121"
+                    FontFamily="San Francisco"
+                ></Button>
+
 
             </VerticalStackLayout>
 
