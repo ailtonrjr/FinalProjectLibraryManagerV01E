@@ -45,15 +45,17 @@ public partial class LoginPage : ContentPage
         password = entryPAssword.Text;
         Models.Managers.DatabaseManager databaseManager = new Models.Managers.DatabaseManager();
         user = databaseManager.VerifyLogin(ID, password);
+        if (databaseManager.IsInstructor == false)
+        {
+            user = new Student(user.Name, user.ID, user.Password);
 
-        user = new Student(user.Name, user.ID, user.Password);
+        }
+        else
+        {
+            user = new Instructor(user.Name,user.ID,user.Password);
+        }
         CurrentUser = user;
-        //}
-        //else
-        //{
-        //    user = new Instructor(user.Name,user.ID,user.Password);
-
-        //}
+       
     }
     public IUser GetUser()
     {

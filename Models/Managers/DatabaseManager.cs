@@ -12,6 +12,8 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
 {
     public class DatabaseManager
     {
+        private bool isInstructor = false;
+        public bool IsInstructor { get {return isInstructor; }  }
         string connectionString;
         public DatabaseManager()
         {
@@ -19,7 +21,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 Server = "127.0.0.1",
                 UserID = "root",
-                Password = "Dudato1312*",
+                Password = "root",
                 Database = "library"
             };
             connectionString = builder.ConnectionString;
@@ -143,6 +145,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
 
         public IUser VerifyLogin(int ID,string password)
         {
+            
             string name="";
             bool Hasborrowed;
             bool IsFined;
@@ -150,11 +153,12 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 List<Book> books;
                 conn.Open();
-                string sql = "(Select StudentName,HasBorrowed,IsFined from student where StudentID='"+ID.ToString()+ "' AND Password='"+password+"');";
+                string sql = "(Select Name,HasBorrowed,IsFined from student where StudentID='"+ID.ToString()+ "' AND Password='"+password+"');";
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 var reader = command.ExecuteReader();
                 if (reader == null)
                 {
+                     isInstructor = true;
                      sql = "(Select InstructorName,HasBorrowed,IsFined from instructor where InstructorID='" + ID.ToString() + "' AND Password='" + password + "');";
                      command = new MySqlCommand(sql, conn);
                      reader=command.ExecuteReader();
