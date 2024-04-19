@@ -34,5 +34,13 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
         {
             fines.Remove(fine);
         }
+
+        public List<Fine> GetFineFromDatabase(IUser user)
+        {
+            List<Fine> fines = new List<Fine>();
+            DatabaseManager databaseManager = new DatabaseManager();
+            fines = databaseManager.GetFinesFromDatabase(user);
+            return fines;
+        }
     }
 }

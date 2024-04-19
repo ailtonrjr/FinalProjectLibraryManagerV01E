@@ -22,7 +22,7 @@ namespace FinalProjectLibraryManagerV01E.Models
             Book = book;
             Student = student;
             this.DateBorrowed = DateBorrowed;
-            this.DueDate = DueDate;
+            this.DueDate = DateBorrowed.AddDays(7);
         }
         public Loan(string LoanId, Book book, Instructor instructor, DateTime DateBorrowed, DateTime DueDate, bool IsActive = true)
         {
@@ -30,7 +30,7 @@ namespace FinalProjectLibraryManagerV01E.Models
             Book = book;
             this.Instructor = instructor;
             this.DateBorrowed = DateBorrowed;
-            this.DueDate = DueDate;
+            this.DueDate = DateBorrowed.AddDays(10);
         }
         public Loan(string LoanId, Book book, IUser user, DateTime DateBorrowed, DateTime DueDate, bool IsActive = true)
         {
@@ -38,8 +38,18 @@ namespace FinalProjectLibraryManagerV01E.Models
             Book = book;
             this.User = user;
             this.DateBorrowed = DateBorrowed;
-            this.DueDate = DueDate;
+            if (user.IsStudent == true)
+            {
+                this.DueDate = DateBorrowed.AddDays(7);
+
+            }
+            else
+            {
+                this.DueDate = DateBorrowed.AddDays(10);
+            }
+
         }
+        public Loan() { }
 
         public override string ToString()
         {

@@ -393,7 +393,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "(Select LoanID,BookID,IsActive,DateBorrowed,DateDue,UserType from loan where userID='" + user.ID + "');";
+                string sql = "(Select LoanID,BookID,IsActive,DateBorrowed,DateDue,UserType from loan where userID='" + user.ID + "' and IsActive=true);";
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -416,6 +416,44 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
 
 
         }
+        public Loan GetLoanUsingId(IUser user,string ID)
+        {
+            List<Loan> loans=new List<Loan>();
+            string BookId="";
+            DateTime DateBorrowed ;
+            DateTime DateDue;
+            bool IsActive;
+            string reservationID;
+            string userType;
+            Loan loan = new Loan();
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "(Select BookID,IsActive,DateBorrowed,DateDue,UserType from loan where userID='" + user.ID + "' and IsActive=true and LoanID='" + ID + "');";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    BookId = reader.GetString(0);
+                    IsActive = reader.GetBoolean(1);
+                    DateBorrowed = reader.GetDateTime(2);
+                    DateDue = reader.GetDateTime(3);
+                    userType = reader.GetString(4);
+
+                    Book book = GetBookFromDatabase(BookId);
+                    loan = new Loan(ID, book, user, DateBorrowed, DateDue);
+                }
+                return loan;
+
+
+            }
+
+
+
+
+        }
+
+
         public int CountRowsReservation()
         {
             int count = 0;
@@ -432,6 +470,37 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                 return count;
             }
 
+        }
+
+        public List<Fine>GetFinesFromDatabase(IUser user)
+        {
+            string FineID;
+            string LoanId;
+            int amount;
+            bool IsActive;
+            string reservationID;
+            string userType;
+            List<Fine> fines = new List<Fine>();
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "(Select FineID,LoanID,UserType,IsActive,FineAmount from fine where userID='" + user.ID + "' and IsActive=true);";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    FineID = reader.GetString(0);
+                    LoanId = reader.GetString(1);
+                    userType = reader.GetString(2);
+
+                    IsActive = reader.GetBoolean(3);
+                    amount = reader.GetInt32(4);
+                    Loan loan = GetLoanUsingId(user, LoanId);
+                    Fine fine = new Fine(FineID,user,amount,loan);
+                    fines.Add(fine);
+                }
+                return fines;
+            }
         }
     }
 }

@@ -144,15 +144,15 @@
 
 
             <VerticalStackLayout Grid.Column="1" Grid.Row="2" Spacing="10" Margin="20,20, 20, 20" BackgroundColor="LightGray">
-                <ListView x:Name="FinesHistoryListView">
+                <ListView x:Name="FinesHistoryListView" ItemsSource="{Binding}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="10">
                                     <Label Text="{Binding ID}"
-                                           Grid.Column="1" Grid.Row="1" FontAttributes="Bold" />
+                                           Grid.Column="1" Grid.Row="1" FontAttributes="Bold" TextColor="Black" />
                                     <Label Text="{Binding Amount}"
-                                           Grid.Column="1" Grid.Row="2" FontAttributes="Italic" />
+                                           Grid.Column="1" Grid.Row="2" FontAttributes="Italic" TextColor="Black" />
                                     <Button Text="Pay Now"
                                             Grid.Column="1" Grid.Row="3" BackgroundColor="Black" TextColor="White"
                                             Clicked="OnPayClicked" WidthRequest="150" HeightRequest="20" FontSize="20" FontFamily="San Francisco"

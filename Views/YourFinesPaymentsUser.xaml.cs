@@ -5,6 +5,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using FinalProjectLibraryManagerV01E.Models;
+using FinalProjectLibraryManagerV01E.Models.Managers;
 
 namespace FinalProjectLibraryManagerV01E.Views;
 
@@ -15,6 +16,7 @@ public partial class YourFinesPaymentsUser : ContentPage
 	{
         InitializeComponent();
         UserFines = new ObservableCollection<Fine>();
+        BindFines();
         //LoadFines();
         //FinesCollectionView.ItemsSource = UserFines;
     }
@@ -59,5 +61,19 @@ public partial class YourFinesPaymentsUser : ContentPage
     private void LogoutFinesUserBtn_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("..");
+    }
+    public List<Fine> GetFines(IUser user)
+    {
+        List<Fine> fines = new List<Fine>();
+        FineManager fineManager = new FineManager();
+        fines = fineManager.GetFineFromDatabase(user);
+        return fines;
+    }
+
+    public void BindFines()
+    {
+        List<Fine> fines=new List<Fine>();
+        fines = GetFines(LoginPage.CurrentUser);
+        BindingContext= fines;
     }
 }
