@@ -40,7 +40,7 @@ namespace FinalProjectLibraryManagerV01E.Models
             this.Book = book;
             this.Instructor = instructor;
             DateReserved = reservsationDate;
-            ReservationDueDate = DateReserved.AddDays(7);
+            ReservationDueDate = DateReserved.AddDays(10);
             IsInstructor = true;
              
         }

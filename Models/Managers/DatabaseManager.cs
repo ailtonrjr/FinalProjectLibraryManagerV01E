@@ -146,7 +146,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                     }
                     else if(usertype =="Instructor")
                     {
-                        sql = "INSERT INTO reservation(ReservationID,BookId,UserType,UserId,IsActive,DateReserved,DateDue) VALUES('" + reservation.ReservationID + "','" + reservation.Book.ISBN + "','" + usertype + "','" + reservation.Instructor.ID + "','" + 1 + "','" + reservation.DateReserved + "','" + reservation.DateReserved.AddDays(7).ToString("yyyy-MM-dd HH:mm:ss") + "');";
+                        sql = "INSERT INTO reservation(ReservationID,BookId,UserType,UserId,IsActive,DateReserved,DateDue) VALUES('" + reservation.ReservationID + "','" + reservation.Book.ISBN + "','" + usertype + "','" + reservation.Instructor.ID + "','" + 1 + "','" + reservation.DateReserved.ToString("yyyy-MM-dd HH:mm:ss") + "','" + reservation.DateReserved.AddDays(10).ToString("yyyy-MM-dd HH:mm:ss") + "');";
 
                     }
                     MySqlCommand command = new MySqlCommand(sql, conn);
