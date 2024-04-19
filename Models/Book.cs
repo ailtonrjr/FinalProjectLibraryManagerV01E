@@ -22,7 +22,7 @@ namespace FinalProjectLibraryManagerV01E.Models
 
         public Book(string title, string author,string Isbn,int copies,int rating,string location)
         {
-            this.ISBN = ISBN;
+            this.ISBN = Isbn;
             this.Title = title;
             this.Author = author;
             this.Rating = rating;
@@ -49,7 +49,7 @@ namespace FinalProjectLibraryManagerV01E.Models
 
         public string ToDisplay()
         {
-            return $" BookID: {BookID} , Title: {Title}, Author: {Author}";
+            return $" BookID: {ISBN} , Title: {Title}, Author: {Author}";
         }
 
     }    

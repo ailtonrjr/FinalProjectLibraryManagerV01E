@@ -48,14 +48,19 @@ public partial class LoginPage : ContentPage
         if (databaseManager.IsInstructor == false)
         {
             user = new Student(user.Name, user.ID, user.Password);
+            CurrentUser = user;
+            CurrentUser.IsStudent = true;
+
 
         }
         else
         {
             user = new Instructor(user.Name,user.ID,user.Password);
+            CurrentUser = user;
+            CurrentUser.IsStudent = false;
+
         }
-        CurrentUser = user;
-       
+
     }
     public IUser GetUser()
     {

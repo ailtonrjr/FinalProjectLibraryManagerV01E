@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FinalProjectLibraryManagerV01E.Models.Managers
 {
-    public static class BookManager
+    public  class BookManager
     {
         public static List<Book> books = new List<Book>()
         {
@@ -124,6 +125,30 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 books.Remove(bookToDelete);
             }
+        }
+
+        public List<Book> SearchBookByTitle(string title)
+        {
+            List<Book> FoundBook = new List<Book>();
+            DatabaseManager databaseManager = new DatabaseManager();
+            FoundBook=databaseManager.GetBookFromDatabaseByTitle(title);
+            return FoundBook;
+        }
+
+        public List<Book> SearchBookByAuthor(string Author)
+        {
+            List<Book> FoundBook = new List<Book>();
+            DatabaseManager databaseManager = new DatabaseManager();
+            FoundBook = databaseManager.GetBookFromDatabaseByAuthor(Author);
+            return FoundBook;
+        }
+
+        public List<Book> SearchBookByFullTitle(string title)
+        {
+            List<Book> books = new List<Book>();
+            DatabaseManager databaseManager=new DatabaseManager();
+            books = databaseManager.GetBookFromDatabaseByFullTitle(title);
+            return books;
         }
     }
 }

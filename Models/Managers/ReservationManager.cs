@@ -13,13 +13,21 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
         public List<Reservation> reservations = new List<Reservation>(); 
 
         public void AddReservation(Reservation newReservation)
-        {
-            if (newReservation != null)
-            {
-                var MaxID = reservations.Max(x => x.ReservationID);
-                newReservation.ReservationID = MaxID + 1;
-                reservations.Add(newReservation);
-            }
+        {         
+            
+                
+                if (newReservation != null)
+                {
+                    DatabaseManager databaseManager1 = new DatabaseManager();
+                    newReservation.ReservationID = (databaseManager1.CountRowsReservation() +1).ToString();
+
+                   
+                    DatabaseManager databaseManager = new DatabaseManager();
+                    databaseManager.AddToDatabse(newReservation);
+                }
+            
+            
+            
         }
         public List<Reservation> Getreservation(IUser user)
         {

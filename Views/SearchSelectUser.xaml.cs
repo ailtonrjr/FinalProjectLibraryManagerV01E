@@ -41,11 +41,13 @@ public partial class SearchSelectUser : ContentPage
 
         if (titleSearchBtnUser.IsChecked == true)
         {
-            foundBooks = BookManager.SearchBooksByTitleFull(filterText : insertedTitle);
+            BookManager bookManager = new BookManager();
+            foundBooks = bookManager.SearchBookByTitle(insertedTitle);
         }
         else if (authorSearchBtnUser.IsChecked == true)  // Changed to else if to avoid overwriting foundBooks
         {
-            foundBooks = BookManager.SearchBooksByAuthorFull(filterText : insertedAuthor);
+            BookManager bookManager = new BookManager();
+            foundBooks = BookManager.SearchBooksByAuthor( insertedAuthor);
         }
 
         searchPickerUser.Items.Clear();  // Clear previous items
@@ -74,6 +76,7 @@ public partial class SearchSelectUser : ContentPage
         {
             titleFoundEntryUser.Text = foundBooks[selectedIndex].Title;
             AuthorFoundEntryUser.Text = foundBooks[selectedIndex].Author;
+            nameReservationNameUser.Text=LoginPage.CurrentUser.Name;
             //isAvailableFoundEntry.Text = foundBooks[selectedIndex].isAvailable.ToString();
 
         }
@@ -85,34 +88,37 @@ public partial class SearchSelectUser : ContentPage
         string titleSelected = titleFoundEntryUser.Text;
         string authorSelected = AuthorFoundEntryUser.Text;
         string nameUserSelected = nameReservationNameUser.Text;
-        Book selectedBook = null;
+        Book selectedBook = new Book();
 
-
-        List<Book> b1 = BookManager.SearchBooksByTitleFull(titleSelected);
+        BookManager bookManager=new BookManager();
+        List<Book> b1 = bookManager.SearchBookByFullTitle(titleSelected);
         if (b1 != null)
         {  // Ensure there are books found before assigning
             Book book = b1.First();  // Using the first found book
-            selectedBook = new Book { Title = book.Title, Author = book.Author };
+            //selectedBook = new Book { Title = book.Title, Author = book.Author };
+            selectedBook = book;
         }
 
         else
         {
-            b1 = BookManager.SearchBooksByAuthorFull(authorSelected);
+            b1 = bookManager.SearchBookByAuthor(authorSelected);
             Book book = b1.First();  // Using the first found book
-            selectedBook = new Book { Title = book.Title, Author = book.Author };
+            //selectedBook = new Book { Title = book.Title, Author = book.Author };
+            selectedBook = book;
+
         }
 
         ReservationManager reservationManager = new ReservationManager();
-        Student selectedStudent = UserManager.IstheUserRegistered(nameUserSelected);
 
+        Student selectedStudent = UserManager.IstheUserRegistered(nameUserSelected);
+        Student student = (Student)LoginPage.CurrentUser;
         if (selectedBook != null && selectedStudent != null)
         {
             var reservation = new Reservation
             {
                 Book = selectedBook,
-                Student = selectedStudent,
-                ReservationDueDate = DateTime.Today
-            };
+                Student = student,
+                DateReserved = DateTime.Now,            };
 
             reservationManager.AddReservation(reservation);
 

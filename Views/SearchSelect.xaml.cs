@@ -80,7 +80,7 @@ public partial class SearchSelect : ContentPage
 
         if (titleSearchBtn.IsChecked == true)
         {
-            foundBooks = BookManager.SearchBooksByTitleFull(filterText : insertedTitle);
+            foundBooks = BookManager.SearchBooksByTitleFull(filterText: insertedTitle);
         }
         else if (authorSearchBtn.IsChecked == true)  // Changed to else if to avoid overwriting foundBooks
         {
@@ -127,7 +127,7 @@ public partial class SearchSelect : ContentPage
         Book selectedBook = null;
 
 
-        List<Book> b1 = BookManager.SearchBooksByAuthorFull(filterText : authorSelected);
+        List<Book> b1 = BookManager.SearchBooksByAuthorFull(filterText: authorSelected);
         if (b1 != null)
         {  // Ensure there are books found before assigning
             Book book = b1.First();  // Using the first found book
@@ -136,7 +136,7 @@ public partial class SearchSelect : ContentPage
 
         else
         {
-            b1 = BookManager.SearchBooksByTitleFull(filterText : titleSelected);
+            b1 = BookManager.SearchBooksByTitleFull(filterText: titleSelected);
             Book book = b1.First();  // Using the first found book
             selectedBook = new Book { Title = book.Title, Author = book.Author };
         }
@@ -175,7 +175,7 @@ public partial class SearchSelect : ContentPage
 
     }
 
-    
+
     //=======
     //    private void OnSearchClicked(object sender, EventArgs e)
     //    {        

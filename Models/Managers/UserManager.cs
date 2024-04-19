@@ -15,6 +15,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             new Student {Name="Arya Perbhaker", ID=3},
             new Student {Name="Ailton Junior", ID=4},
             new Student {Name="Mazanza Alberto", ID=5},
+            new Student{Name="John Doe", ID=123456789}
 
         };
 
