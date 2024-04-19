@@ -1,23 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using FinalProjectLibraryManagerV01E.Views;
-using Microsoft.Maui.Devices.Sensors;
-using Microsoft.VisualBasic;
-using MySqlConnector;
-using Windows.System;
+﻿using MySqlConnector;
 
 namespace FinalProjectLibraryManagerV01E.Models.Managers
 {
     public class DatabaseManager
     {
         private bool isInstructor = false;
-        public bool IsInstructor { get {return isInstructor; }  }
+        public bool IsInstructor { get { return isInstructor; } }
         string connectionString;
         public DatabaseManager()
         {
@@ -144,7 +132,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                         sql = "INSERT INTO reservation(ReservationID,BookId,UserType,UserId,IsActive,DateReserved,DateDue) VALUES('" + reservation.ReservationID + "','" + reservation.Book.ISBN + "','" + usertype + "','" + reservation.Student.ID + "','" + 1 + "','" + reservation.DateReserved.ToString("yyyy-MM-dd HH:mm:ss") + "','" + reservation.DateReserved.AddDays(7).ToString("yyyy-MM-dd HH:mm:ss") + "');";
 
                     }
-                    else if(usertype =="Instructor")
+                    else if (usertype == "Instructor")
                     {
                         sql = "INSERT INTO reservation(ReservationID,BookId,UserType,UserId,IsActive,DateReserved,DateDue) VALUES('" + reservation.ReservationID + "','" + reservation.Book.ISBN + "','" + usertype + "','" + reservation.Instructor.ID + "','" + 1 + "','" + reservation.DateReserved.ToString("yyyy-MM-dd HH:mm:ss") + "','" + reservation.DateReserved.AddDays(10).ToString("yyyy-MM-dd HH:mm:ss") + "');";
 
@@ -182,38 +170,38 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             }
         }
 
-        public IUser VerifyLogin(int ID,string password)
+        public IUser VerifyLogin(int ID, string password)
         {
-            
-            string name="";
+
+            string name = "";
             bool Hasborrowed;
             bool IsFined;
             using (var conn = new MySqlConnection(connectionString))
             {
                 List<Book> books;
                 conn.Open();
-                string sql = "(Select Name,HasBorrowed,IsFined from student where StudentID='"+ID.ToString()+ "' AND Password='"+password+"');";
+                string sql = "(Select Name,HasBorrowed,IsFined from student where StudentID='" + ID.ToString() + "' AND Password='" + password + "');";
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 var reader = command.ExecuteReader();
                 if (reader == null)
                 {
-                     isInstructor = true;
-                     sql = "(Select InstructorName,HasBorrowed,IsFined from instructor where InstructorID='" + ID.ToString() + "' AND Password='" + password + "');";
-                     command = new MySqlCommand(sql, conn);
-                     reader=command.ExecuteReader();
+                    isInstructor = true;
+                    sql = "(Select InstructorName,HasBorrowed,IsFined from instructor where InstructorID='" + ID.ToString() + "' AND Password='" + password + "');";
+                    command = new MySqlCommand(sql, conn);
+                    reader = command.ExecuteReader();
                     if (reader == null)
                     {
-                        return null ;
+                        return null;
                     }
                     else
                     {
                         while (reader.Read())
-                        {                            
+                        {
                             name = reader.GetString(0);
-                            Hasborrowed=reader.GetBoolean(1);
+                            Hasborrowed = reader.GetBoolean(1);
                             IsFined = reader.GetBoolean(2);
                         }
-                        Instructor instructor = new Instructor(name,ID,password);
+                        Instructor instructor = new Instructor(name, ID, password);
                         return instructor;
 
                     }
@@ -227,11 +215,11 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                         Hasborrowed = reader.GetBoolean(1);
                         IsFined = reader.GetBoolean(2);
                     }
-                    Student student = new Student(name,ID,password);
+                    Student student = new Student(name, ID, password);
                     isInstructor = false;
                     return student;
                 }
-                
+
 
 
 
@@ -249,13 +237,13 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "(Select BookID,IsActive,DateReserved,ReservationId from reservation where userID='" + user.ID+ "');";
+                string sql = "(Select BookID,IsActive,DateReserved,ReservationId from reservation where userID='" + user.ID + "');";
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    BookId=reader.GetString(0);
-                    
+                    BookId = reader.GetString(0);
+
                     if (reader.GetString(1) == "1")
                     {
                         IsActive = true;
@@ -264,10 +252,10 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                     {
                         IsActive = false;
                     }
-                    DT= reader.GetDateTime(2);
-                    reservationID=reader.GetString(3);
+                    DT = reader.GetDateTime(2);
+                    reservationID = reader.GetString(3);
                     Book book = GetBookFromDatabase(BookId);
-                    Reservation reservation = new Reservation(book,user,DT);
+                    Reservation reservation = new Reservation(book, user, DT);
                     reservation.ReservationID = reservationID;
                     reservations.Add(reservation);
                 }
@@ -276,10 +264,10 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
         }
         public Book GetBookFromDatabase(string bookID)
         {
-            string author="";
-            string Booktitle="";
-            int copies=0;
-            int Rating=0;
+            string author = "";
+            string Booktitle = "";
+            int copies = 0;
+            int Rating = 0;
             string location = "";
             using (var conn = new MySqlConnection(connectionString))
             {
@@ -291,9 +279,9 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                 {
                     author = reader.GetString(0);
                     Booktitle = reader.GetString(1);
-                    copies=reader.GetInt32(2);
+                    copies = reader.GetInt32(2);
                     Rating = reader.GetInt32(3);
-                    location=reader.GetString(4);
+                    location = reader.GetString(4);
 
                 }
                 Book book = new Book(Booktitle, author, bookID, copies, Rating, location);
@@ -303,7 +291,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
 
         public List<Book> GetBookFromDatabaseByFullTitle(string Title)
         {
-            List<Book> books = new List<Book>();    
+            List<Book> books = new List<Book>();
             string author = "";
             string Id = "";
             int copies = 0;
@@ -332,7 +320,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
 
 
 
-        public List<Book>  GetBookFromDatabaseByTitle(string Title)
+        public List<Book> GetBookFromDatabaseByTitle(string Title)
         {
             List<Models.Book> FoundBooks = new List<Models.Book>();
             string author = "";
@@ -344,7 +332,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "(Select ISBN,Title,Author,Copies,Rating,Location from books where Lower(Title) Like'" + Title+"%');";
+                string sql = "(Select ISBN,Title,Author,Copies,Rating,Location from books where Lower(Title) Like'" + Title + "%');";
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -375,7 +363,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "(Select ISBN,Title,Copies,Rating,Location,Author from books where Lower(Author) Like '"+Author.ToLower()+"%');";
+                string sql = "(Select ISBN,Title,Copies,Rating,Location,Author from books where Lower(Author) Like '" + Author.ToLower() + "%');";
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -385,36 +373,52 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                     copies = reader.GetInt32(2);
                     Rating = reader.GetInt32(3);
                     location = reader.GetString(4);
-                    author= reader.GetString(5);
+                    author = reader.GetString(5);
                     Book book = new Book(title, author, Id, copies, Rating, location);
-                    FoundBooks.Add(book) ;
+                    FoundBooks.Add(book);
                 }
                 return FoundBooks;
             }
         }
-        //public Loan GetLoanFromDatabase(int LoanID)
-        //{
-        //    using (var conn = new MySqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-        //        string sql = "(Select Use,BookTitle,Copies,Rating,Location from book where BookID='" + bookID + "');";
-        //        MySqlCommand command = new MySqlCommand(sql, conn);
-        //        var reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            author = reader.GetString(0);
-        //            Booktitle = reader.GetString(1);
-        //            copies = reader.GetInt32(2);
-        //            Rating = reader.GetInt32(3);
-        //            location = reader.GetString(4);
+        public List<Loan> GetLoanFromDatabase(IUser user)
+        {
+            string LoanID;
+            string BookId;
+            DateTime DateBorrowed;
+            DateTime DateDue;
+            bool IsActive;
+            string reservationID;
+            string userType;
+            List<Loan> loans = new List<Loan>();
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "(Select LoanID,BookID,IsActive,DateBorrowed,DateDue,UserType from loan where userID='" + user.ID + "');";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    LoanID = reader.GetString(0);
+                    BookId = reader.GetString(1);
+                    IsActive = reader.GetBoolean(2);
+                    DateBorrowed = reader.GetDateTime(3);
+                    DateDue = reader.GetDateTime(4);
+                    userType = reader.GetString(5);
 
-        //        }
-        //    }
-        //}
+                    Book book = GetBookFromDatabase(BookId);
+                    Loan loan = new Loan(LoanID, book, user, DateBorrowed, DateDue);
+                    loans.Add(loan);
+                }
+                return loans;
+            }
 
+
+
+
+        }
         public int CountRowsReservation()
         {
-            int count=0;
+            int count = 0;
             using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
@@ -423,12 +427,11 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    count=reader.GetInt32(0);
+                    count = reader.GetInt32(0);
                 }
                 return count;
             }
-        }
 
-    
+        }
     }
 }

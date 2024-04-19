@@ -128,6 +128,8 @@
                 FontSize="Small"
                 FontFamily="San Francisco"
             ></Label>
+            <ListView BackgroundColor="Black" x:Name="LoanList" Grid.Row="2" Grid.Column="1"  Margin="30,0,0,0"></ListView>
+
 
         </Grid>
     </ScrollView>

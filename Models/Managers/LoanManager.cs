@@ -29,5 +29,12 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
         {
             loans.Remove(loan);
         }
+        public List<Loan> GetLoanFromDatabase(IUser user)
+        {
+            List<Loan> loans = new List<Loan>();
+            DatabaseManager databaseManager= new DatabaseManager();
+            loans=databaseManager.GetLoanFromDatabase(user);
+            return loans;
+        }
     }
 }
