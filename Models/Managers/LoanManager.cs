@@ -36,5 +36,12 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             loans=databaseManager.GetLoanFromDatabase(user);
             return loans;
         }
+
+        public List<Loan> GetAllLoanFromManager()
+        {
+            DatabaseManager databaseManager = new DatabaseManager();
+            List<Loan> loan = databaseManager.GetLoanAllFromDatabase();
+            return loan;
+        }
     }
 }

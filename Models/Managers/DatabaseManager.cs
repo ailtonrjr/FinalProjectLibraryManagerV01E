@@ -223,6 +223,59 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             }
         }
 
+        public IUser GetUser(string userID)
+        {
+            string password = "";
+            string name = "";
+            bool Hasborrowed;
+            bool IsFined;
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                List<Book> books;
+                conn.Open();
+                string sql = "(Select Name,HasBorrowed,IsFined,Password from student where StudentID='" + userID + "');";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                if (reader == null)
+                {
+                    isInstructor = true;
+                    sql = "(Select InstructorName,HasBorrowed,IsFined,Password from instructor where InstructorID='" + userID + "' );";
+                    command = new MySqlCommand(sql, conn);
+                    reader = command.ExecuteReader();
+                    if (reader == null)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        while (reader.Read())
+                        {
+                            name = reader.GetString(0);
+                            Hasborrowed = reader.GetBoolean(1);
+                            IsFined = reader.GetBoolean(2);
+                            password = reader.GetString(3);
+                        }
+                        Instructor instructor = new Instructor(name, Convert.ToInt32(userID), password);
+                        return instructor;
+                    }
+                }
+
+                else
+                {
+                    while (reader.Read())
+                    {
+                        name = reader.GetString(0);
+                        Hasborrowed = reader.GetBoolean(1);
+                        IsFined = reader.GetBoolean(2);
+                        password = reader.GetString(3);
+                    }
+                    Student student = new Student(name, Convert.ToInt32(userID), password);
+                    isInstructor = false;
+                    return student;
+                }
+            }
+        }
+
         public List<Reservation> GetReservationFromDatabse(IUser user)
         {
             string BookId;
@@ -407,13 +460,45 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                 }
                 return loans;
             }
-
-
-
-
         }
-        public Loan GetLoanUsingId(IUser user,string ID)
+        public List<Loan> GetLoanAllFromDatabase()
         {
+            string UserID;
+            string LoanID;
+            string BookId;
+            DateTime DateBorrowed;
+            DateTime DateDue;
+            bool IsActive;
+            string reservationID;
+            string userType;
+            List<Loan> loans = new List<Loan>();
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "(Select LoanID,BookID,IsActive,DateBorrowed,DateDue,UserType,UserID from loan );";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    LoanID = reader.GetString(0);
+                    BookId = reader.GetString(1);
+                    IsActive = reader.GetBoolean(2);
+                    DateBorrowed = reader.GetDateTime(3);
+                    DateDue = reader.GetDateTime(4);
+                    userType = reader.GetString(5);
+                    UserID = reader.GetString(6);
+
+                    Book book = GetBookFromDatabase(BookId);
+                    IUser user = GetUser(UserID);
+                    Loan loan = new Loan(LoanID, book, user, DateBorrowed, DateDue);
+                    loans.Add(loan);
+                }
+                return loans;
+            }
+
+        }   
+            public Loan GetLoanUsingId(IUser user,string ID)
+            { 
             List<Loan> loans=new List<Loan>();
             string BookId="";
             DateTime DateBorrowed ;

@@ -16,13 +16,14 @@ namespace FinalProjectLibraryManagerV01E.Models
         public DateTime DateBorrowed { get; set; }
         public bool IsActive { get; set; }
         public DateTime DueDate { get; set; }
-
+        public string Title {  get; set; }
         public Loan() { }
         public Loan(string LoanId, Book book, Student student, DateTime DateBorrowed, DateTime DueDate, bool IsActive = true)
         {
             LoanID = LoanId;
             Book = book;
             Student = student;
+            Title=book.Title;
             this.DateBorrowed = DateBorrowed;
             this.DueDate = DateBorrowed.AddDays(7);
         }
@@ -31,6 +32,7 @@ namespace FinalProjectLibraryManagerV01E.Models
             LoanID = LoanId;
             Book = book;
             this.Instructor = instructor;
+            Title = book.Title;
             this.DateBorrowed = DateBorrowed;
             this.DueDate = DateBorrowed.AddDays(10);
         }
@@ -38,6 +40,8 @@ namespace FinalProjectLibraryManagerV01E.Models
         {
             LoanID = LoanId;
             Book = book;
+            Title = book.Title;
+
             this.User = user;
             this.DateBorrowed = DateBorrowed;
             if (user.IsStudent == true)
