@@ -23,9 +23,6 @@ namespace FinalProjectLibraryManagerV01E.Models
             this.Name = Name;
             ID = id;
             this.password = password;
-            IsFined = false;
-            TotalFine = 0;
-            HasBorrowed = false;
             IsStudent = false;
 
         }

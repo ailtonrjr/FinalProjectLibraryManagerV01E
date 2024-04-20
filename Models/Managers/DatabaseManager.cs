@@ -15,7 +15,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 Server = "127.0.0.1",
                 UserID = "root",
-                Password = "Dudato1312*",
+                Password = "root",
                 Database = "library"
             };
             connectionString = builder.ConnectionString;
@@ -497,6 +497,62 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                 }
                 return fines;
             }
+        }
+
+        public List<Student> GetAllStudentsFromDatabase()
+        {
+            List<Student> students = new List<Student>();
+            string StudentId = "";
+            int studentid;
+            string password;
+            string Name = "";
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "Select StudentId,Password,Name from student;";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    StudentId= reader.GetString(0);
+                    studentid = Convert.ToInt32(StudentId);
+                    password = reader.GetString(1);
+                    Name= reader.GetString(2);
+                    Student student= new Student(Name,studentid, password);
+                    students.Add(student);
+                }
+                return students;
+            }
+
+        }
+
+        public List<Instructor> GetAllInstructorsFromDatabase()
+        {
+            List<Instructor> Instructors = new List<Instructor>();
+            int InstructorId;
+            string instructorid="";
+            string Password;
+            string Name = "";
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "Select InstructorID,Password,InstructorName from instructor;";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    instructorid = reader.GetString(0);
+                    InstructorId = Convert.ToInt32(instructorid);
+                    Password = reader.GetString(1);
+                    Name = reader.GetString(2);
+                    Instructor instructor = new Instructor(Name,InstructorId, Password);
+                   Instructors.Add(instructor);
+                }
+                return Instructors;
+            }
+
         }
     }
 }

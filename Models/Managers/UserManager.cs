@@ -24,5 +24,21 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             return students.FirstOrDefault(student => student.Name == name);
         }
 
+        public static List<Student> GetStudentsFromManager()
+        {
+            List<Student> students=new List<Student>();
+            DatabaseManager databaseManager = new DatabaseManager();
+            students=databaseManager.GetAllStudentsFromDatabase();
+            return students;
+        }
+
+        public static List<Instructor> GetInstructorFromManager()
+        {
+            List<Instructor> instructors = new List<Instructor>();
+            DatabaseManager databaseManager = new DatabaseManager();
+            instructors = databaseManager.GetAllInstructorsFromDatabase();
+            return instructors;
+        }
+
     }
 }
