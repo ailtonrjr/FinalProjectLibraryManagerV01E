@@ -119,10 +119,32 @@
              FontSize="Small"
              FontFamily="San Francisco"
          ></Label>
-            <ListView BackgroundColor="Black" x:Name="ReservationList" Grid.Row="2" Grid.Column="1"  Margin="30,0,0,0"></ListView>
+            
+            
 
-                
-                <!--<Grid Grid.Row="2" Grid.Column="1"  Margin="30,0,0,0">
+            <ListView
+                x:Name="ReservationList"
+                BackgroundColor="Grey" 
+                Grid.Row="2" 
+                Grid.Column="1"  
+                Margin="30"
+                RowHeight="50"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="Center"
+                SeparatorColor="Black">
+            </ListView>
+
+            
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
+
+
+<!--
+>-->
+
+            <!--<Grid Grid.Row="2" Grid.Column="1"  Margin="30,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
@@ -148,6 +170,4 @@
                 <Label Grid.Row="10" Text="{Binding Reservation10}"></Label>
             </Grid>-->
 
-        </Grid>
-    </ScrollView>
-</ContentPage>
+  

@@ -98,7 +98,7 @@ public partial class SearchSelect : ContentPage
         }
         else
         {
-            searchPicker.Items.Add("Book not found");  // Handle no books found
+            searchPicker = null;
         }
     }
 
@@ -170,7 +170,7 @@ public partial class SearchSelect : ContentPage
         }
         else
         {
-            // Throw an exception
+            new Exception("No books found!");
         }
 
     }

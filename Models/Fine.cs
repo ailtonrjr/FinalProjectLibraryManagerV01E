@@ -16,6 +16,8 @@ namespace FinalProjectLibraryManagerV01E.Models
         public Loan loan { get; set; }
         public bool IsActive { get; set; }
 
+        public Fine() { }
+
 
         public Fine(string iD, Student student, decimal amount, Loan loan)
         {

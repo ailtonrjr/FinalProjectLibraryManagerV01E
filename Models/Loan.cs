@@ -16,6 +16,8 @@ namespace FinalProjectLibraryManagerV01E.Models
         public DateTime DateBorrowed { get; set; }
         public bool IsActive { get; set; }
         public DateTime DueDate { get; set; }
+
+        public Loan() { }
         public Loan(string LoanId, Book book, Student student, DateTime DateBorrowed, DateTime DueDate, bool IsActive = true)
         {
             LoanID = LoanId;
@@ -49,8 +51,7 @@ namespace FinalProjectLibraryManagerV01E.Models
             }
 
         }
-        public Loan() { }
-
+       
         public override string ToString()
         {
             return $"Loan ID: {LoanID}, Book Name: {Book.Title}, User Name: {User.Name},  Date borrowed: {DateBorrowed}, DateDue: {DueDate}";

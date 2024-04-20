@@ -49,7 +49,7 @@
 
         public override string ToString()
         {
-            return $"Rervation Id: {ReservationID},   Book: {Book.Title},   User: {this.User.Name},  Reservation Valid Till: {this.ReservationDueDate}";
+            return $"Reservation Id: {ReservationID},   Book: {Book.Title},   User: {this.User.Name},  Reservation Valid Till: {this.ReservationDueDate}";
         }
     }
 }

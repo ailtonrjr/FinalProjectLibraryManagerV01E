@@ -1,4 +1,6 @@
 ﻿using MySqlConnector;
+using Microsoft.Maui.Controls;
+using System;
 
 namespace FinalProjectLibraryManagerV01E.Models.Managers
 {
@@ -13,7 +15,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 Server = "127.0.0.1",
                 UserID = "root",
-                Password = "root",
+                Password = "Dudato1312*",
                 Database = "library"
             };
             connectionString = builder.ConnectionString;
@@ -203,10 +205,9 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                         }
                         Instructor instructor = new Instructor(name, ID, password);
                         return instructor;
-
                     }
-
                 }
+
                 else
                 {
                     while (reader.Read())
@@ -219,11 +220,6 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                     isInstructor = false;
                     return student;
                 }
-
-
-
-
-
             }
         }
 

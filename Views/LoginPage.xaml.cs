@@ -17,50 +17,69 @@ public partial class LoginPage : ContentPage
 
     }
 
-    private void loginBtn_Clicked_1(object sender, EventArgs e)
+    private async void loginBtn_Clicked_1(object sender, EventArgs e)
     {
-        VerifyUserIdAndPasswd();
-
-        if (userRadioButton.IsChecked == true)
+        try
         {
-            Shell.Current.GoToAsync(nameof(HomepageCustomer));
+            await VerifyUserIdAndPasswd();
+
+            if (userRadioButton.IsChecked)
+            {
+                await Shell.Current.GoToAsync(nameof(HomepageCustomer));
+            }
+            else if (adminRadioButton.IsChecked)
+            {
+                await Shell.Current.GoToAsync(nameof(HomepageLibrarian));
+            }
         }
-        
-        else if (adminRadioButton.IsChecked == true) 
-        
+        catch (Exception ex)
         {
-            Shell.Current.GoToAsync(nameof(HomepageLibrarian));
+            await DisplayAlert("Error", "Please verify your UserID and/or password and try again", "OK");
+            await Shell.Current.GoToAsync("..");
         }
-
-        entryUserID.Text = "";
-        entryPAssword.Text = "";
-        userRadioButton.IsChecked = false;
-        adminRadioButton.IsChecked = false;
-
+        finally
+        {
+            entryUserID.Text = "";
+            entryPAssword.Text = "";
+            userRadioButton.IsChecked = false;
+            adminRadioButton.IsChecked = false;
+        }
     }
 
-    public void VerifyUserIdAndPasswd()
+    public async Task VerifyUserIdAndPasswd()
     {
-        ID = Convert.ToInt32(entryUserID.Text);
-        password = entryPAssword.Text;
-        Models.Managers.DatabaseManager databaseManager = new Models.Managers.DatabaseManager();
-        user = databaseManager.VerifyLogin(ID, password);
-        if (databaseManager.IsInstructor == false)
+        try
         {
-            user = new Student(user.Name, user.ID, user.Password);
-            CurrentUser = user;
-            CurrentUser.IsStudent = true;
+            int ID = Convert.ToInt32(entryUserID.Text);
+            string password = entryPAssword.Text;  
+            Models.Managers.DatabaseManager databaseManager = new Models.Managers.DatabaseManager();
 
+            
+            IUser user = databaseManager.VerifyLogin(ID, password);
 
+            if (user == null)
+            {
+                throw new Exception("No user found with the provided ID and password.");
+            }
+
+            if (databaseManager.IsInstructor)
+            {
+                user = new Instructor(user.Name, user.ID, user.Password);
+                CurrentUser = user;
+                CurrentUser.IsStudent = false;
+            }
+            else
+            {
+                user = new Student(user.Name, user.ID, user.Password);
+                CurrentUser = user;
+                CurrentUser.IsStudent = true;
+            }
         }
-        else
+        catch (Exception ex)
         {
-            user = new Instructor(user.Name,user.ID,user.Password);
-            CurrentUser = user;
-            CurrentUser.IsStudent = false;
-
+            // Re-throw the exception to be handled in the calling method
+            throw new Exception("Failed to verify user. Please check the credentials and try again.", ex);
         }
-
     }
     public IUser GetUser()
     {
