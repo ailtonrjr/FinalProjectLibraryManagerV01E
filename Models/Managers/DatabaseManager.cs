@@ -17,7 +17,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 Server = "127.0.0.1",
                 UserID = "root",
-                Password = "Dudato1312*",
+                Password = "root",
                 Database = "library"
             };
             connectionString = builder.ConnectionString;
