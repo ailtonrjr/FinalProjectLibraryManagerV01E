@@ -10,7 +10,7 @@ public partial class SearchSelectUser : ContentPage
 	{
         InitializeComponent();
 	}
-
+    Book CurrentBook { get; set; }
     List<Book> foundBooks = new List<Book>();
     int selectedIndex;
 
@@ -69,6 +69,7 @@ public partial class SearchSelectUser : ContentPage
     {
         var picker = (Picker)sender;
         selectedIndex = picker.SelectedIndex;
+        CurrentBook = foundBooks[selectedIndex];
 
         if (selectedIndex < 0) { }
 
@@ -77,6 +78,7 @@ public partial class SearchSelectUser : ContentPage
             titleFoundEntryUser.Text = foundBooks[selectedIndex].Title;
             AuthorFoundEntryUser.Text = foundBooks[selectedIndex].Author;
             nameReservationNameUser.Text=LoginPage.CurrentUser.Name;
+            RatingLabel.Text = foundBooks[selectedIndex].Rating.ToString();
             //isAvailableFoundEntry.Text = foundBooks[selectedIndex].isAvailable.ToString();
 
         }
@@ -161,4 +163,28 @@ public partial class SearchSelectUser : ContentPage
         Shell.Current.GoToAsync(nameof(LoginPage));
     }
 
+    private void ChangeRating_Clicked(object sender, EventArgs e)
+    {
+        
+        string StringRating=ChangeRatingEntry.Text;
+        float Rating = 0.0f;
+        if (float.TryParse(StringRating, out Rating))
+        {
+            if (Rating > 5)
+            {
+                ChangeRatingEntry.Text = "Invalid";
+            }
+            else
+            {
+                BookManager bookManager = new BookManager();
+                bookManager.ChangeRating(Rating, CurrentBook);
+                ChangeRatingEntry.Text = "";
+                RatingLabel.Text=bookManager.GetRating(CurrentBook.ISBN).ToString();    
+            }
+        }
+        else
+        {
+            ChangeRatingEntry.Text = "Invalid";
+        }
+    }
 }

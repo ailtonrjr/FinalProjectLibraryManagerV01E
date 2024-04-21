@@ -283,20 +283,20 @@
                         </Border>
 
                         <Label
-                            Text="Is the book available?"
+                            Text="Book Rating"
+                            VerticalOptions="Center"
+                            TextColor="Black"
+                            FontFamily="San Francisco"
+                            FontAttributes="Bold"></Label>
+                        <Label
+                            x:Name="RatingLabel"
+                            Text="{Binding}"
                             VerticalOptions="Center"
                             TextColor="Black"
                             FontFamily="San Francisco"
                             FontAttributes="Bold"></Label>
 
-                        <Border >
-                            <Entry
-                                x:Name="isAvailableFoundEntryUser"
-                                Text="{Binding isAvailable}"
-                                WidthRequest="200"
-                                FontFamily="San Francisco"
-                                TextColor="Black"></Entry>
-                        </Border>
+
 
                     </HorizontalStackLayout>
 
@@ -320,6 +320,20 @@
                             ></Entry>
 
                         </Border>
+
+                        <Border >
+                            <Entry
+                                x:Name="ChangeRatingEntry"
+                                Text="{Binding isAvailable}"
+                                Placeholder="Rate Out of 5"
+                                WidthRequest="200"
+                                FontFamily="San Francisco"
+                                TextColor="Black"></Entry>
+                        </Border>
+                        <Button x:Name="ChangeRating" BackgroundColor="Black" TextColor="White" Text="Rate" FontSize="24"
+                                FontAttributes="Bold" Clicked="ChangeRating_Clicked">
+                            
+                        </Button>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout Padding="20,0" Spacing="30" Margin="20,0" HorizontalOptions="Center" VerticalOptions="Center">
 

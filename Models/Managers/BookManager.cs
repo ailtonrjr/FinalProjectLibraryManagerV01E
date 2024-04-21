@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.VoiceCommands;
 
 namespace FinalProjectLibraryManagerV01E.Models.Managers
 {
@@ -149,6 +150,21 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             DatabaseManager databaseManager=new DatabaseManager();
             books = databaseManager.GetBookFromDatabaseByFullTitle(title);
             return books;
+        }
+
+        public void ChangeRating(float NewRating,Book book)
+        {
+            DatabaseManager databaseManager = new DatabaseManager();
+            float NewAverageRating= book.CalculateAverageRating(NewRating);
+            book.Rating= NewAverageRating;
+            databaseManager.UpdateBookRatingInDatabase(book);
+        }
+
+        public float GetRating(string Id)
+        {
+            DatabaseManager databaseManager =new DatabaseManager();
+            float NewRating=databaseManager.GetUpdatedRating(Id);
+            return NewRating;
         }
     }
 }

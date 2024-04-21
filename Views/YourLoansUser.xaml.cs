@@ -52,7 +52,10 @@ public partial class YourLoansUser : ContentPage
         {
             StringLoans.Add(loan.ToString());
         }
-        LoanList.ItemsSource = StringLoans;
+        LoanList.ItemsSource = loans;
         
     }
+
+    
+
 }
