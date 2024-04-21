@@ -136,6 +136,7 @@ public partial class YourFinesPaymentsUser : ContentPage
             // Open connection, execute command and close connection
             await connection.OpenAsync();
             await command.ExecuteNonQueryAsync();
+
         }
     }
 }

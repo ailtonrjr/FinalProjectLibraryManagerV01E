@@ -25,7 +25,6 @@ namespace FinalProjectLibraryManagerV01E.Models
 
         }
 
-
         public Fine(string iD, Student student, decimal amount, Loan loan)
         {
             ID = iD;

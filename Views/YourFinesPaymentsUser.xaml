@@ -159,7 +159,6 @@
                                             Grid.Column="2" Grid.Row="4" BackgroundColor="Black" TextColor="White"
                                             Clicked="OnPayClicked" WidthRequest="150" HeightRequest="20" FontSize="20" FontFamily="San Francisco"
                                             CommandParameter="{Binding FineID}" />
-
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
