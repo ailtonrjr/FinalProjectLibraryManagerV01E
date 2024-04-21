@@ -149,14 +149,16 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="10">
-                                    <Label Text="{Binding ID}"
-                                           Grid.Column="1" Grid.Row="1" FontAttributes="Bold" TextColor="Black" />
-                                    <Label Text="{Binding Amount}"
-                                           Grid.Column="1" Grid.Row="2" FontAttributes="Italic" TextColor="Black" />
+                                    <Label Text="{Binding FineID}"
+                                           Grid.Column="2" Grid.Row="1" FontAttributes="Bold" TextColor="Black" />
+                                    <Label Text="{Binding FineAmount}"
+                                           Grid.Column="2" Grid.Row="2" FontAttributes="Italic" TextColor="Black" />
+                                    <Label Text="{Binding UserID}"
+                                            Grid.Column="2" Grid.Row="3" FontAttributes="Italic" TextColor="Black" />
                                     <Button Text="Pay Now"
-                                            Grid.Column="1" Grid.Row="3" BackgroundColor="Black" TextColor="White"
+                                            Grid.Column="2" Grid.Row="4" BackgroundColor="Black" TextColor="White"
                                             Clicked="OnPayClicked" WidthRequest="150" HeightRequest="20" FontSize="20" FontFamily="San Francisco"
-                                            CommandParameter="{Binding iD}" />
+                                            CommandParameter="{Binding FineID}" />
 
                                 </StackLayout>
                             </ViewCell>

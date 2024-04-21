@@ -15,8 +15,15 @@ namespace FinalProjectLibraryManagerV01E.Models
         public decimal Amount { get; set; }
         public Loan loan { get; set; }
         public bool IsActive { get; set; }
+        public string UserID { get; internal set; }
+        public string LoanID { get; internal set; }
+        public string UserType { get; internal set; }
+        public int FineAmount { get; internal set; }
 
-        public Fine() { }
+        public Fine()
+        {
+
+        }
 
 
         public Fine(string iD, Student student, decimal amount, Loan loan)
