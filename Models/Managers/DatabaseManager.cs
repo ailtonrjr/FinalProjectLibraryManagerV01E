@@ -1,6 +1,8 @@
 ﻿using MySqlConnector;
 using Microsoft.Maui.Controls;
 using System;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui;
 
 namespace FinalProjectLibraryManagerV01E.Models.Managers
 {
@@ -316,7 +318,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             string author = "";
             string Booktitle = "";
             int copies = 0;
-            int Rating = 0;
+            float Rating = 0;
             string location = "";
             using (var conn = new MySqlConnection(connectionString))
             {
@@ -329,12 +331,40 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                     author = reader.GetString(0);
                     Booktitle = reader.GetString(1);
                     copies = reader.GetInt32(2);
-                    Rating = reader.GetInt32(3);
+                    Rating = reader.GetFloat(3);
                     location = reader.GetString(4);
 
                 }
                 Book book = new Book(Booktitle, author, bookID, copies, Rating, location);
                 return book;
+            }
+        }
+        public void UpdateBookRatingInDatabase(Book book)
+        {
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "Update books Set Rating='" + book.Rating + "' where ISBN='" + book.ISBN + "';";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                 command.ExecuteNonQuery();
+                
+            }
+        }
+        public float GetUpdatedRating(string ID)
+        {
+            float Rating = 0.0f;
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "(Select Rating from books where ISBN='" + ID + "');";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Rating=reader.GetFloat(0);
+
+                }
+                return Rating;
             }
         }
 
@@ -639,5 +669,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             }
 
         }
+
+
     }
 }
