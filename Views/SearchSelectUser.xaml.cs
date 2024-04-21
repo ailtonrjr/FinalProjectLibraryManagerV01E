@@ -158,7 +158,7 @@ public partial class SearchSelectUser : ContentPage
 
     private void LogoutSearchUserBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
 
 }

@@ -60,7 +60,7 @@ public partial class YourFinesPaymentsUser : ContentPage
 
     private void LogoutFinesUserBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
     public List<Fine> GetFines(IUser user)
     {

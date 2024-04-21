@@ -44,6 +44,6 @@ namespace FinalProjectLibraryManagerV01E.Views;
 
     private void LogoutHomeUserBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
 }

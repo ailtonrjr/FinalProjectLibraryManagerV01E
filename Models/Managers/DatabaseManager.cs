@@ -15,7 +15,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
             {
                 Server = "127.0.0.1",
                 UserID = "root",
-                Password = "root",
+                Password = "Dudato1312*",
                 Database = "library"
             };
             connectionString = builder.ConnectionString;
@@ -145,6 +145,18 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                     transaction.Commit();
                 }
             }
+        }
+
+        public void DeleteBookFromDatabase(string ISBN)
+        {
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                string sql = "DELETE FROM books WHERE ISBN='"+ ISBN + "';";
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
+
         }
 
 
@@ -525,12 +537,7 @@ namespace FinalProjectLibraryManagerV01E.Models.Managers
                     loan = new Loan(ID, book, user, DateBorrowed, DateDue);
                 }
                 return loan;
-
-
             }
-
-
-
 
         }
 

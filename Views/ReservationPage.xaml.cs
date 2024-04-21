@@ -51,7 +51,7 @@ public partial class ReservationPage : ContentPage
 
     private void LogoutReservationsAdminBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
 }
 

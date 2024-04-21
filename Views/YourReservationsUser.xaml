@@ -83,7 +83,7 @@
                 <Button
                     x:Name="LogoutReservationUserBtn"
                     Text="LOGOUT"
-                    Clicked="LogoutReservationUserBtn_Clicked"
+                    Clicked='LogoutReservationUserBtn_Clicked'
                     Margin="0,200"
                     TextTransform="Uppercase"
                     FontSize="20"

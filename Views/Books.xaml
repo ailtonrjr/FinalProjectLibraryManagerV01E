@@ -27,13 +27,13 @@
             Text="Home"
                     
             ></Button>-->
-        <VerticalStackLayout
-            Grid.Row="1" 
-            Grid.Column="0" 
-            Margin="0,-110,0,-1000" 
-            Spacing="5" 
-            Padding="0,150" 
-            BackgroundColor="#212121">
+            <VerticalStackLayout
+                Grid.Row="1" 
+                Grid.Column="0" 
+                Margin="0,-110,0,-1000" 
+                Spacing="5" 
+                Padding="0,150" 
+                BackgroundColor="#212121">
 
 
                 <Button
@@ -136,36 +136,193 @@
 
             </VerticalStackLayout>
 
+                <Label 
+                    Padding="10" 
+                    Margin="30,0,0,0" 
+                    Grid.Row="0" 
+                    Grid.Column="1" 
+                    Text="BOOK INVENTORY" 
+                    TextColor="Black" 
+                    FontAttributes="Bold"
+                    FontSize="Header"
+                    FontFamily="Helvetica"
+                ></Label>
+
+                <Label 
+                    Padding="10,0,0,0" 
+                    Margin="30,0,0,0" 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    Text="This is a page to control book's invetory" 
+                    TextColor="Black" 
+                    FontSize="Small"
+                    FontFamily="San Francisco"
+                ></Label>
+
             <HorizontalStackLayout Margin="30" Padding="10" Spacing="10" Grid.Column="1" Grid.Row="3">
 
-                <VerticalStackLayout Spacing="80">
-                    <Label Text="Space to show up the books repository"
-                       TextColor="Black"></Label>
+                <VerticalStackLayout Spacing="40">
+                    <!--<Label Text="Space to show up the books repository"
+                       TextColor="Black"></Label>-->
 
-                    <!--<HorizontalStackLayout>
+                    <Border Padding="20" HorizontalOptions="Center" WidthRequest="850" HeightRequest="600">
 
-                            <Border>
+                        <VerticalStackLayout Padding="10" Margin="10" Spacing="0">
+
+                            <Label
+                                Text="ADD A NEW BOOK"
+                                TextColor="Black"
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                Padding="0,0,0,30"></Label>
+
+                            <HorizontalStackLayout Spacing="350">
 
                                 <Label
-                                    Text="Title"
-                                    FontSize="18"
-                                    TextColor="Black"
+                                        Padding="5,10"
+                                        Text="Title:"
+                                        TextColor="Black"
+                                        VerticalOptions="Center"
+                                        FontAttributes="Bold"
+                                        FontSize="18"
+                                        FontFamily="San Francisco"
                                     ></Label>
 
-                                <Entry 
-                                    x:Name="addingTitleEntry"
+                                <Label
+                                        Padding="5,10"
+                                        Text="Author:"
+                                        TextColor="Black"
+                                        VerticalOptions="Center"
+                                        FontAttributes="Bold"
+                                        FontSize="18"
+                                        FontFamily="San Francisco"
+                                    ></Label>
+
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="105">
+
+                                <Entry
+                                    x:Name="newBookTitleEntry"
+                                    TextColor="Black"
+                                    BackgroundColor="White"
+                                    FontFamily="San Francisco"
                                     Placeholder="Insert the title of the new book"
-                                    WidthRequest="200"
-                                    TextColor="Black"></Entry>
+                                    WidthRequest="300"
+                                ></Entry>
 
-                            </Border>
+                                <Entry
+                                    x:Name="newBookAuthorEntry"
+                                    TextColor="Black"
+                                    BackgroundColor="White"
+                                    FontFamily="San Francisco"
+                                    Placeholder="Insert the author of the new book"
+                                    WidthRequest="300"
+                                ></Entry>
 
-                        
-                    </HorizontalStackLayout>-->
-                                        
-                    <HorizontalStackLayout Spacing="50" >
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="350">
+
+                                <Label
+                                    Padding="5,10"
+                                    Margin="0,30,0,0"
+                                    Text="ISBN:"
+                                    TextColor="Black"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    FontFamily="San Francisco"
+                                ></Label>
+
+                                <Label
+                                    Padding="5,10"
+                                    Margin="0,30,0,0"
+                                    Text="Copies:"
+                                    TextColor="Black"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    FontFamily="San Francisco"
+                                ></Label>
+
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="105">
+
+                                <Entry
+                                x:Name="newBookISBNEntry"
+                                TextColor="Black"
+                                BackgroundColor="White"
+                                FontFamily="San Francisco"
+                                Placeholder="Insert the ISBN code of the new book"
+                                WidthRequest="300"
+                                ></Entry>
+
+                                <Entry
+                                x:Name="newBookCopiesEntry"
+                                TextColor="Black"
+                                BackgroundColor="White"
+                                FontFamily="San Francisco"
+                                Placeholder="Insert the number of copies of the new book"
+                                WidthRequest="300"
+                                ></Entry>
+
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="350">
+
+                                <Label
+                                    Padding="5,10"
+                                    Margin="0,30,0,0"
+                                    Text="Rating:"
+                                    TextColor="Black"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    FontFamily="San Francisco"
+                                ></Label>
+
+                                <Label
+                                    Padding="5,10"
+                                    Margin="0,30,0,0"
+                                    Text="Location:"
+                                    TextColor="Black"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    FontFamily="San Francisco"
+                                ></Label>
+
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="105">
+
+                                <Entry
+                                    x:Name="newBookRatingEntry"
+                                    TextColor="Black"
+                                    BackgroundColor="White"
+                                    FontFamily="San Francisco"
+                                    Placeholder="Insert the previous rate of the new book"
+                                    WidthRequest="300"
+                                ></Entry>
+
+                                <Entry
+                                    x:Name="newBookLocationEntry"
+                                    TextColor="Black"
+                                    BackgroundColor="White"
+                                    FontFamily="San Francisco"
+                                    Placeholder="Insert the author of the new book"
+                                    WidthRequest="300"
+                                ></Entry>
+
+                            </HorizontalStackLayout>
+
                             <Button
                                 x:Name="addBookBtn"
+                                Margin="10,50,65,0"
+                                WidthRequest="300"
+                                HorizontalOptions="CenterAndExpand"
                                 BackgroundColor="Black"
                                 TextColor="White"
                                 FontAttributes="Bold"
@@ -173,42 +330,76 @@
                                 Text="Add a new book"
                                 Clicked="addBookBtn_Clicked"></Button>
 
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                    <Border Padding="20" Margin="15" HorizontalOptions="Center" WidthRequest="850" HeightRequest="350">
+
+                        <VerticalStackLayout Padding="10" Margin="10" Spacing="0">
+
+                            <Label
+                                Text="DELETE A BOOK"
+                                TextColor="Black"
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                Padding="0,0,0,30"></Label>
+
+                            <HorizontalStackLayout Spacing="350">
+
+                                <Label
+                                    Padding="5,10"
+                                    Text="ISBN:"
+                                    TextColor="Black"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    FontFamily="San Francisco"
+                                ></Label>
+
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="105">
+
+                                <Entry
+                                    x:Name="deleteBookISBNEntry"
+                                    TextColor="Black"
+                                    BackgroundColor="White"
+                                    FontFamily="San Francisco"
+                                    Placeholder="Insert the ISBN code of the book that will be deleted"
+                                    WidthRequest="500"
+                                ></Entry>
+
+
+                            </HorizontalStackLayout>
+
+
                             <Button
                                 x:Name="deleteBookBtn"
+                                Margin="10,50,65,0"
+                                WidthRequest="300"
+                                HorizontalOptions="Center"
                                 BackgroundColor="Black"
                                 TextColor="White"
                                 FontAttributes="Bold"
                                 FontSize="22"
                                 Text="Delete book"
                                 Clicked="deleteBookBtn_Clicked"></Button>
-                    </HorizontalStackLayout>
+
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+
+
+                    
+
                 </VerticalStackLayout>
+
             </HorizontalStackLayout>
 
-
-            <Label 
-            Padding="10" 
-            Margin="30,0,0,0" 
-            Grid.Row="0" 
-            Grid.Column="1" 
-            Text="BOOK INVENTORY" 
-            TextColor="Black" 
-            FontAttributes="Bold"
-            FontSize="Header"
-            FontFamily="Helvetica"
-            ></Label>
-
-            <Label 
-            Padding="10,0,0,0" 
-            Margin="30,0,0,0" 
-            Grid.Row="1" 
-            Grid.Column="1" 
-            Text="This is a page to control book's invetory" 
-            TextColor="Black" 
-            FontSize="Small"
-            FontFamily="San Francisco"
-        ></Label>
-
-            </Grid>
+        </Grid>
         </ScrollView>
     </ContentPage>

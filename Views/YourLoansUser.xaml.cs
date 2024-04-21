@@ -33,7 +33,7 @@ public partial class YourLoansUser : ContentPage
 
     private void LogoutLoansUserBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
     public List<Models.Loan> GetLoans()
     {

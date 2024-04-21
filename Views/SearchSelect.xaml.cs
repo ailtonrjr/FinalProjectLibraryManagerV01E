@@ -47,7 +47,7 @@ public partial class SearchSelect : ContentPage
 
     private void LogoutSearchAdminBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
 
     //private void bookSearchBar_TextChanged(object sender, TextChangedEventArgs e)

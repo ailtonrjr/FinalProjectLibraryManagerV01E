@@ -39,6 +39,6 @@ public partial class ActiveFinesPayments : ContentPage
 
     private void LogoutFinesAdminBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
 }

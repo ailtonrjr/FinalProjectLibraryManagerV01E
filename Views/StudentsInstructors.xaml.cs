@@ -45,7 +45,7 @@ public partial class StudentsInstructors : ContentPage
 
     private void LogoutUsersAdminBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
     public List<Student> GetAllStudents()
     {

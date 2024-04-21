@@ -57,6 +57,6 @@ public partial class HomepageLibrarian : ContentPage
 
     private void LogoutHomeAdminBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
 }

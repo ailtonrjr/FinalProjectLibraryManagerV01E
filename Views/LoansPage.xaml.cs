@@ -60,7 +60,7 @@ public partial class LoansPage : ContentPage
 
     private void LogoutLoansAdminBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync(nameof(LoginPage));
     }
     public List<Models.Loan> GetAllLoan()
     {
